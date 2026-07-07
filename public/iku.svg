@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" width="800" height="1200" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="sky" cx="50%" cy="42%" r="75%">
+      <stop offset="0%" stop-color="#e9e6df"/>
+      <stop offset="60%" stop-color="#d6d1c7"/>
+      <stop offset="100%" stop-color="#b8b0a2"/>
+    </radialGradient>
+    <radialGradient id="halo" cx="50%" cy="40%" r="28%">
+      <stop offset="0%" stop-color="#f4f2ee" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#f4f2ee" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="1200" fill="url(#sky)"/>
+  <rect width="800" height="1200" fill="url(#halo)"/>
+
+  <!-- Soft horizon -->
+  <rect y="820" width="800" height="380" fill="#9a948a" opacity="0.18"/>
+
+  <!-- Distant torii gate -->
+  <g fill="none" stroke="#6b655c" stroke-width="14" stroke-linecap="round" opacity="0.55" transform="translate(0 40)">
+    <line x1="400" y1="540" x2="400" y2="820"/>
+    <line x1="320" y1="552" x2="320" y2="820"/>
+    <line x1="480" y1="552" x2="480" y2="820"/>
+    <line x1="296" y1="540" x2="504" y2="540"/>
+    <line x1="316" y1="592" x2="484" y2="592"/>
+  </g>
+
+  <!-- Central circle (where the verb sits in negative space) -->
+  <circle cx="400" cy="520" r="170" fill="none" stroke="#6b655c" stroke-width="6" opacity="0.25"/>
+</svg>

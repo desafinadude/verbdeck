@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" fill="#f4f2ee"/>
+  <g fill="none" stroke="#2b2926" stroke-width="22" stroke-linecap="round">
+    <!-- Torii gate (minimal) -->
+    <line x1="256" y1="150" x2="256" y2="392"/>
+    <line x1="160" y1="160" x2="160" y2="392"/>
+    <line x1="352" y1="160" x2="352" y2="392"/>
+    <line x1="140" y1="150" x2="372" y2="150"/>
+    <line x1="158" y1="200" x2="354" y2="200"/>
+  </g>
+</svg>
