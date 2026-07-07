@@ -136,6 +136,11 @@ export default function Page() {
         }
       },
       (err) => {
+        // Empty error = onend fired with no result (silence / quick release).
+        if (!err) {
+          setPhase("ask");
+          return;
+        }
         setStatus(err || "Recognition error");
         setStatusTone("no");
         setPhase("ask");
@@ -148,10 +153,7 @@ export default function Page() {
   const stopMic = useCallback(() => {
     recognizerRef.current?.stop();
     recognizerRef.current = null;
-    if (phase === "listening") {
-      setPhase("evaluating");
-    }
-  }, [phase]);
+  }, []);
 
   const beginDialogue = useCallback(async () => {
     stopSpeaking();

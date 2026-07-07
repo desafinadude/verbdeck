@@ -111,12 +111,19 @@ export function startRecognition(
   rec.maxAlternatives = 1;
   rec.continuous = false;
 
+  let gotResult = false;
+
   rec.onresult = (e: any) => {
+    gotResult = true;
     const text = e.results?.[0]?.[0]?.transcript ?? "";
     onResult(text);
   };
   rec.onerror = (e: any) => {
+    gotResult = true;
     onError(e?.error || "認識エラー");
+  };
+  rec.onend = () => {
+    if (!gotResult) onError("");
   };
 
   return {
