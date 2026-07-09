@@ -1,20 +1,9 @@
-import ikuData from "@/data/verbs/iku.json";
+import ikuCsv from "@/data/questions/iku.csv";
+import ikuMeta from "@/data/verbs/iku.json";
 
 /* ------------------------------------------------------------------ *
  * Data types
  * ------------------------------------------------------------------ */
-
-export interface TimeExpression {
-  ja: string;
-  romaji: string;
-  en: string;
-}
-
-export interface Place {
-  ja: string;
-  romaji: string;
-  en: string;
-}
 
 export interface Conjugation {
   ja: string;
@@ -22,15 +11,14 @@ export interface Conjugation {
   en: string;
 }
 
-export interface VerbData {
+/** Lightweight metadata per verb — shown on the intro card / hero. */
+export interface VerbMeta {
   verb: string;
   verbRomaji: string;
   verbEnglish: string;
   particle: string;
   particleEnglish: string;
   conjugations: Record<string, Conjugation>;
-  timeExpressions: TimeExpression[];
-  places: Place[];
 }
 
 /* ------------------------------------------------------------------ *
@@ -63,192 +51,156 @@ export interface Question {
 }
 
 /* ------------------------------------------------------------------ *
- * Verb registry — add more verbs here as more JSON files are created
+ * Verb registry — add more verbs here as more CSV files are created
  * ------------------------------------------------------------------ */
 
-export const VERBS: Record<string, VerbData> = {
-  iku: ikuData as VerbData,
+export const VERBS: Record<string, VerbMeta> = {
+  iku: ikuMeta as VerbMeta,
 };
 
 /* ------------------------------------------------------------------ *
- * Question generation engine
+ * CSV bank
  *
- * The engine takes a VerbData file and produces 10 questions — one per
- * grammatical form — using a time expression and a place drawn from the
- * vocabulary pools. Each form has its own question template so the
- * wording matches the conjugation naturally.
+ * The question content is hand-authored in data/questions/<verb>.csv and
+ * loaded at build time as a raw string (see next.config.js → asset/source).
+ * Each row is a complete, grammatically-correct Q&A pair. A round picks
+ * one random row per grammatical form, so every variation (subject, time,
+ * place, long vs short answer) gets exercised across sessions while every
+ * round still drills all 10 forms.
+ * ------------------------------------------------------------------ */
+
+/** One parsed row of the CSV question bank. */
+interface CsvRow {
+  form: string;
+  question: string;
+  questionRomaji: string;
+  questionEnglish: string;
+  hintKeyword: string;
+  hintKeywordRomaji: string;
+  hintEnglish: string;
+  answer: string;
+  answerRomaji: string;
+  answerEnglish: string;
+  strictVerb: string;
+}
+
+/**
+ * RFC-4180 CSV parser — handles quoted fields, escaped double-quotes (""),
+ * embedded commas and newlines. Cells may be CRLF or LF terminated.
+ */
+function parseCsv(text: string): string[][] {
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let field = "";
+  let inQuotes = false;
+
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+
+    if (inQuotes) {
+      if (ch === '"') {
+        if (text[i + 1] === '"') {
+          field += '"';
+          i++; // skip the escaped quote
+        } else {
+          inQuotes = false;
+        }
+      } else {
+        field += ch;
+      }
+      continue;
+    }
+
+    if (ch === '"') {
+      inQuotes = true;
+    } else if (ch === ",") {
+      row.push(field);
+      field = "";
+    } else if (ch === "\r") {
+      // swallow; handled by \n
+    } else if (ch === "\n") {
+      row.push(field);
+      rows.push(row);
+      row = [];
+      field = "";
+    } else {
+      field += ch;
+    }
+  }
+
+  // Flush the final field/row if the file didn't end with a newline.
+  if (field.length > 0 || row.length > 0) {
+    row.push(field);
+    rows.push(row);
+  }
+
+  return rows;
+}
+
+/** Parse a raw CSV string into typed rows, skipping the header line. */
+function loadBank(csv: string): CsvRow[] {
+  const table = parseCsv(csv);
+  if (table.length < 2) return [];
+
+  const header = table[0];
+  const idx = (name: string) => header.indexOf(name);
+  const columns = {
+    form: idx("form"),
+    question: idx("question_ja"),
+    questionRomaji: idx("question_romaji"),
+    questionEnglish: idx("question_en"),
+    hintKeyword: idx("hint_ja"),
+    hintKeywordRomaji: idx("hint_romaji"),
+    hintEnglish: idx("hint_en"),
+    answer: idx("answer_ja"),
+    answerRomaji: idx("answer_romaji"),
+    answerEnglish: idx("answer_en"),
+    strictVerb: idx("strict_verb"),
+  };
+
+  const rows: CsvRow[] = [];
+  for (let r = 1; r < table.length; r++) {
+    const cells = table[r];
+    if (cells.length < header.length) continue; // skip malformed / blank lines
+    const get = (col: number) => (cells[col] ?? "").trim();
+    rows.push({
+      form: get(columns.form),
+      question: get(columns.question),
+      questionRomaji: get(columns.questionRomaji),
+      questionEnglish: get(columns.questionEnglish),
+      hintKeyword: get(columns.hintKeyword),
+      hintKeywordRomaji: get(columns.hintKeywordRomaji),
+      hintEnglish: get(columns.hintEnglish),
+      answer: get(columns.answer),
+      answerRomaji: get(columns.answerRomaji),
+      answerEnglish: get(columns.answerEnglish),
+      strictVerb: get(columns.strictVerb),
+    });
+  }
+  return rows;
+}
+
+/* ------------------------------------------------------------------ *
+ * The 10 grammatical forms — order defines the dot-matrix order.
+ * Each form has a human label and the CSV `form` key it draws from.
  * ------------------------------------------------------------------ */
 
 interface FormDef {
-  /** key into VerbData.conjugations */
   key: string;
-  /** human label shown in the UI */
   label: string;
-  /** produces the question (ja), romaji, and english given a time + place */
-  question: (t: TimeExpression, p: Place, v: VerbData) => { ja: string; romaji: string; en: string };
-  /** produces the expected answer given a place + conjugation */
-  answer: (p: Place, c: Conjugation, v: VerbData) => { ja: string; romaji: string; en: string };
-  /**
-   * Which tenses are valid for this form, matched against TimeExpression.en.
-   * e.g. past forms only make sense with past/yesterday/today contexts.
-   * "any" means no filtering.
-   */
-  validTimes?: string[];
 }
 
-const PAST_HINTS = ["yesterday", "last week", "last year", "this morning"];
-const FUTURE_HINTS = ["tomorrow", "tonight", "next week", "next year", "this evening", "weekend"];
-
 const FORMS: FormDef[] = [
-  {
-    key: "polite_present_pos",
-    label: "Polite Present (+)",
-    validTimes: FUTURE_HINTS.concat(["today", "now"]),
-    question: (t, _p, v) => ({
-      ja: `${t.ja}、どこに${v.conjugations.polite_present_pos.ja}か？`,
-      romaji: `${t.romaji}, doko ni ${v.conjugations.polite_present_pos.romaji} ka?`,
-      en: `Where will you go ${t.en}?`,
-    }),
-    answer: (p, c, v) => ({
-      ja: `${p.ja}${v.particle}${c.ja}。`,
-      romaji: `${p.romaji} ${v.particle} ${c.romaji}.`,
-      en: `I will go ${v.particleEnglish} the ${p.en}.`,
-    }),
-  },
-  {
-    key: "polite_present_neg",
-    label: "Polite Present (-)",
-    validTimes: FUTURE_HINTS.concat(["today", "now"]),
-    question: (t, p, v) => ({
-      ja: `${t.ja}、${p.ja}に${v.conjugations.polite_present_pos.ja}か？`,
-      romaji: `${t.romaji}, ${p.romaji} ni ${v.conjugations.polite_present_pos.romaji} ka?`,
-      en: `Will you go ${v.particleEnglish} the ${p.en} ${t.en}?`,
-    }),
-    answer: (_p, c, v) => ({
-      ja: `いいえ、${v.conjugations.polite_present_neg.ja}。`,
-      romaji: `Iie, ${c.romaji}.`,
-      en: `No, I will not go.`,
-    }),
-  },
-  {
-    key: "polite_past_pos",
-    label: "Polite Past (+)",
-    validTimes: PAST_HINTS.concat(["today"]),
-    question: (t, _p, v) => ({
-      ja: `${t.ja}、どこに${v.conjugations.polite_past_pos.ja}か？`,
-      romaji: `${t.romaji}, doko ni ${v.conjugations.polite_past_pos.romaji} ka?`,
-      en: `Where did you go ${t.en}?`,
-    }),
-    answer: (p, c, v) => ({
-      ja: `${p.ja}${v.particle}${c.ja}。`,
-      romaji: `${p.romaji} ${v.particle} ${c.romaji}.`,
-      en: `I went ${v.particleEnglish} the ${p.en}.`,
-    }),
-  },
-  {
-    key: "polite_past_neg",
-    label: "Polite Past (-)",
-    validTimes: PAST_HINTS.concat(["today"]),
-    question: (t, p, v) => ({
-      ja: `${t.ja}、${p.ja}に${v.conjugations.polite_past_pos.ja}か？`,
-      romaji: `${t.romaji}, ${p.romaji} ni ${v.conjugations.polite_past_pos.romaji} ka?`,
-      en: `Did you go ${v.particleEnglish} the ${p.en} ${t.en}?`,
-    }),
-    answer: (_p, c, v) => ({
-      ja: `いいえ、${v.conjugations.polite_past_neg.ja}。`,
-      romaji: `Iie, ${c.romaji}.`,
-      en: `No, I did not go.`,
-    }),
-  },
-  {
-    key: "casual_present_pos",
-    label: "Casual Present (+)",
-    validTimes: FUTURE_HINTS.concat(["today", "now"]),
-    question: (t, _p, v) => ({
-      ja: `${t.ja}、どこに${v.conjugations.casual_present_pos.ja}？`,
-      romaji: `${t.romaji}, doko ni ${v.conjugations.casual_present_pos.romaji}?`,
-      en: `Where are you going ${t.en}?`,
-    }),
-    answer: (p, c, v) => ({
-      ja: `${p.ja}${v.particle}${c.ja}。`,
-      romaji: `${p.romaji} ${v.particle} ${c.romaji}.`,
-      en: `Going ${v.particleEnglish} the ${p.en}.`,
-    }),
-  },
-  {
-    key: "casual_present_neg",
-    label: "Casual Present (-)",
-    validTimes: FUTURE_HINTS.concat(["today", "now"]),
-    question: (t, p, v) => ({
-      ja: `${t.ja}、${p.ja}に${v.conjugations.casual_present_pos.ja}？`,
-      romaji: `${t.romaji}, ${p.romaji} ni ${v.conjugations.casual_present_pos.romaji}?`,
-      en: `Going ${v.particleEnglish} the ${p.en} ${t.en}?`,
-    }),
-    answer: (_p, c, v) => ({
-      ja: `ううん、${v.conjugations.casual_present_neg.ja}。`,
-      romaji: `Uun, ${c.romaji}.`,
-      en: `Nah, not going.`,
-    }),
-  },
-  {
-    key: "casual_past_pos",
-    label: "Casual Past (+)",
-    validTimes: PAST_HINTS.concat(["today"]),
-    question: (t, _p, v) => ({
-      ja: `${t.ja}、どこに${v.conjugations.casual_past_pos.ja}？`,
-      romaji: `${t.romaji}, doko ni ${v.conjugations.casual_past_pos.romaji}?`,
-      en: `Where did you go ${t.en}?`,
-    }),
-    answer: (p, c, v) => ({
-      ja: `${p.ja}${v.particle}${c.ja}。`,
-      romaji: `${p.romaji} ${v.particle} ${c.romaji}.`,
-      en: `Went ${v.particleEnglish} the ${p.en}.`,
-    }),
-  },
-  {
-    key: "casual_past_neg",
-    label: "Casual Past (-)",
-    validTimes: PAST_HINTS.concat(["today"]),
-    question: (t, p, v) => ({
-      ja: `${t.ja}、${p.ja}に${v.conjugations.casual_past_pos.ja}？`,
-      romaji: `${t.romaji}, ${p.romaji} ni ${v.conjugations.casual_past_pos.romaji}?`,
-      en: `Did you go ${v.particleEnglish} the ${p.en} ${t.en}?`,
-    }),
-    answer: (_p, c, v) => ({
-      ja: `ううん、${v.conjugations.casual_past_neg.ja}。`,
-      romaji: `Uun, ${c.romaji}.`,
-      en: `Nah, didn't go.`,
-    }),
-  },
-  {
-    key: "te_request",
-    label: "Te-Form (Request)",
-    question: (_t, _p, _v) => ({
-      ja: `道が分かりません。`,
-      romaji: `Michi ga wakarimasen.`,
-      en: `I don't know the way.`,
-    }),
-    answer: (p, c, v) => ({
-      ja: `あそこ${v.particle}${c.ja}。`,
-      romaji: `Asoko ${v.particle} ${c.romaji}.`,
-      en: `Please go over there.`,
-    }),
-  },
-  {
-    key: "te_continuous",
-    label: "Te-Form (Continuous)",
-    validTimes: ["now", "today"],
-    question: (t, _p, v) => ({
-      ja: `${t.ja}、どこに${v.conjugations.te_continuous.ja}か？`,
-      romaji: `${t.romaji}, doko ni ${v.conjugations.te_continuous.romaji} ka?`,
-      en: `Where are you going ${t.en}?`,
-    }),
-    answer: (p, c, v) => ({
-      ja: `${p.ja}${v.particle}${c.ja}。`,
-      romaji: `${p.romaji} ${v.particle} ${c.romaji}.`,
-      en: `I am going ${v.particleEnglish} the ${p.en}.`,
-    }),
-  },
+  { key: "polite_present_pos", label: "Polite Present (+)" },
+  { key: "polite_present_neg", label: "Polite Present (-)" },
+  { key: "polite_past_pos", label: "Polite Past (+)" },
+  { key: "polite_past_neg", label: "Polite Past (-)" },
+  { key: "casual_present_pos", label: "Casual Present (+)" },
+  { key: "casual_present_neg", label: "Casual Present (-)" },
+  { key: "casual_past_pos", label: "Casual Past (+)" },
+  { key: "casual_past_neg", label: "Casual Past (-)" },
+  { key: "te_request", label: "Te-Form (Request)" },
+  { key: "te_continuous", label: "Te-Form (Continuous)" },
 ];
 
 /* ------------------------------------------------------------------ *
@@ -269,6 +221,24 @@ function pick<T>(arr: T[], rng: () => number): T {
 }
 
 /* ------------------------------------------------------------------ *
+ * Load the CSV banks once per verb (module load). The bank is a flat
+ * array grouped by form for quick per-form random selection.
+ * ------------------------------------------------------------------ */
+
+const BANKS: Record<string, Record<string, CsvRow[]>> = {
+  iku: groupByForm(loadBank(ikuCsv)),
+};
+
+function groupByForm(rows: CsvRow[]): Record<string, CsvRow[]> {
+  const map: Record<string, CsvRow[]> = {};
+  for (const row of rows) {
+    if (!row.form) continue;
+    (map[row.form] ??= []).push(row);
+  }
+  return map;
+}
+
+/* ------------------------------------------------------------------ *
  * Generate the 10-question set for a verb.
  *
  * @param verbKey   key into VERBS (e.g. "iku")
@@ -279,57 +249,40 @@ export function generateQuestions(verbKey: string, seed?: number): Question[] {
   const v = VERBS[verbKey];
   if (!v) throw new Error(`Unknown verb: ${verbKey}`);
 
+  const bank = BANKS[verbKey];
+  if (!bank) throw new Error(`No question bank for verb: ${verbKey}`);
+
   const rng = mulberry32(seed ?? Date.now());
-  const usedTimes = new Set<string>();
-  const usedPlaces = new Set<string>();
 
   return FORMS.map((form) => {
-    const conj = v.conjugations[form.key];
-    if (!conj) throw new Error(`Missing conjugation: ${form.key}`);
-
-    // Pick a time expression valid for this form, avoiding repeats.
-    const pool = form.validTimes
-      ? v.timeExpressions.filter((t) => form.validTimes!.includes(t.en))
-      : v.timeExpressions;
-    const availTime = pool.filter((t) => !usedTimes.has(t.ja));
-    const time = availTime.length > 0 ? pick(availTime, rng) : pick(pool, rng);
-    usedTimes.add(time.ja);
-
-    // Pick a place, avoiding repeats.
-    const availPlace = v.places.filter((p) => !usedPlaces.has(p.ja));
-    const place = availPlace.length > 0 ? pick(availPlace, rng) : pick(v.places, rng);
-    usedPlaces.add(place.ja);
-
-    const q = form.question(time, place, v);
-    const a = form.answer(place, conj, v);
-
-    // The strict fragment is always: particle + conjugation (e.g. に行きます)
-    const strictVerb = `${v.particle}${conj.ja}`;
-
-    // For negative forms the hint is the negation word, not the place.
-    const isNeg = form.key.includes("_neg");
-    const hintKeyword = isNeg ? (form.key.startsWith("polite") ? "いいえ" : "ううん") : place.ja;
-    const hintKeywordRomaji = isNeg ? (form.key.startsWith("polite") ? "iie" : "uun") : place.romaji;
-    const hintEnglish = isNeg ? (form.key.startsWith("polite") ? "no" : "no (casual)") : place.en;
+    const pool = bank[form.key];
+    if (!pool || pool.length === 0) {
+      throw new Error(`No rows for form "${form.key}" in ${verbKey} bank`);
+    }
+    const row = pick(pool, rng);
 
     return {
       state: form.label,
-      question: q.ja,
-      questionRomaji: q.romaji,
-      questionEnglish: q.en,
-      hintKeyword,
-      hintKeywordRomaji,
-      hintEnglish,
-      answer: a.ja,
-      answerRomaji: a.romaji,
-      answerEnglish: a.en,
-      strictVerb,
+      question: row.question,
+      questionRomaji: row.questionRomaji,
+      questionEnglish: row.questionEnglish,
+      hintKeyword: row.hintKeyword,
+      hintKeywordRomaji: row.hintKeywordRomaji,
+      hintEnglish: row.hintEnglish,
+      answer: row.answer,
+      answerRomaji: row.answerRomaji,
+      answerEnglish: row.answerEnglish,
+      strictVerb: row.strictVerb,
     };
   });
 }
 
 /* ------------------------------------------------------------------ *
- * Evaluation logic — strict verb-ending + fuzzy noun.
+ * Evaluation logic — strict verb-ending + noun presence.
+ *
+ * The CSV already encodes the exact verb-ending fragment per row
+ * (e.g. にいきませんでした), so the check is an absolute substring
+ * match on the normalized transcript plus the hint keyword.
  * ------------------------------------------------------------------ */
 
 export function normalize(s: string): string {

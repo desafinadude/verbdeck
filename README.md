@@ -11,8 +11,9 @@ The user is drilled on one verb (行く / "to go") across 10 essential conversat
 
 ## Project structure
 ```
-data/questions.json     Question data (separate from app logic)
-lib/questions.ts        Loads JSON + evaluation logic (strict verb + fuzzy noun)
+data/questions/iku.csv  Hand-authored Q&A bank (one row = one complete sentence pair)
+data/verbs/iku.json     Verb metadata (kanji, particle, conjugation table)
+lib/questions.ts        CSV parser + round builder + evaluation logic
 lib/audio.ts            TTS/STT engine with Cloud hooks
 app/page.tsx            The interaction state machine + UI
 app/layout.tsx          PWA metadata
@@ -25,7 +26,13 @@ public/icons/           SVG sources + rasterized PNG icons
 ```
 
 ## Data
-All question content lives in `data/questions.json` — not hardcoded in the app. Add verbs by adding JSON files and loading them.
+All question content lives in `data/questions/<verb>.csv` — not hardcoded in the app.
+Each row is a complete, grammatically-correct Q&A pair (question + romaji + English,
+hint keyword, answer + romaji + English, and the strict verb-ending fragment to check).
+A round picks one random row per grammatical form, so every variation (subject, time,
+place, long vs short answer) is exercised across sessions while every round still drills
+all 10 forms. Verb metadata (kanji, particle, conjugations) lives in `data/verbs/<verb>.json`.
+Add a verb by adding a CSV + a metadata JSON and registering it in `VERBS` / `BANKS` in `lib/questions.ts`.
 
 ## Getting started
 ```bash

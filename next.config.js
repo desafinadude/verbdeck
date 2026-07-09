@@ -1,6 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Import .csv files as raw strings (hand-authored question bank).
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.csv$/,
+      type: "asset/source",
+    });
+    return config;
+  },
   // Allow the service worker to be served from the public root.
   async headers() {
     return [

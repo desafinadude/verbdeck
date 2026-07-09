@@ -1,0 +1,113 @@
+verb,form,question_ja,question_romaji,question_en,hint_ja,hint_romaji,hint_en,answer_ja,answer_romaji,answer_en,strict_verb
+iku,polite_present_pos,"明日、どこに行きますか？","ashita, doko ni ikimasu ka?","Where will you go tomorrow?",お寺,otera,temple,"お寺に行きます。","otera ni ikimasu.","I will go to the temple.",にいきます
+iku,polite_present_pos,"今夜、どこに行きますか？","kon'ya, doko ni ikimasu ka?","Where will you go tonight?",映画,eiga,movie,"映画に行きます。","eiga ni ikimasu.","I will go to the movie.",にいきます
+iku,polite_present_pos,"来週、どこに行きますか？","raishu, doko ni ikimasu ka?","Where will you go next week?",京都,kyoto,Kyoto,"京都に行きます。","kyoto ni ikimasu.","I will go to Kyoto.",にいきます
+iku,polite_present_pos,"週末、どこに行きますか？","shumatsu, doko ni ikimasu ka?","Where will you go this weekend?",海,umi,beach,"海に行きます。","umi ni ikimasu.","I will go to the beach.",にいきます
+iku,polite_present_pos,"金曜日、どこに行きますか？","kinyobi, doko ni ikimasu ka?","Where will you go on Friday?",東京,tokyo,Tokyo,"東京に行きます。","tokyo ni ikimasu.","I will go to Tokyo.",にいきます
+iku,polite_present_pos,"彼は明日どこに行きますか？","kare wa ashita doko ni ikimasu ka?","Where will he go tomorrow?",京都,kyoto,Kyoto,"彼は京都に行きます。","kare wa kyoto ni ikimasu.","He will go to Kyoto.",にいきます
+iku,polite_present_pos,"彼女は来週どこに行きますか？","kanojo wa raishu doko ni ikimasu ka?","Where will she go next week?",大阪,osaka,Osaka,"彼女は大阪に行きます。","kanojo wa osaka ni ikimasu.","She will go to Osaka.",にいきます
+iku,polite_present_pos,"彼らは週末どこに行きますか？","karera wa shumatsu doko ni ikimasu ka?","Where will they go this weekend?",山,yama,mountains,"彼らは山に行きます。","karera wa yama ni ikimasu.","They will go to the mountains.",にいきます
+iku,polite_present_pos,"来年どこに行きますか？","rainen doko ni ikimasu ka?","Where will you go next year?",日本,nihon,Japan,"日本に行きます。","nihon ni ikimasu.","I will go to Japan.",にいきます
+iku,polite_present_pos,"今晩どこに行きますか？","konban doko ni ikimasu ka?","Where will you go this evening?",レストラン,resutoran,restaurant,"レストランに行きます。","resutoran ni ikimasu.","I will go to the restaurant.",にいきます
+iku,polite_present_neg,"今夜、映画に行きますか？","kon'ya, eiga ni ikimasu ka?","Will you go to the movie tonight?",いいえ,iie,no,"いいえ、映画に行きません。","iie, eiga ni ikimasen.","No, I will not go to the movie tonight.",にいきません
+iku,polite_present_neg,"明日、学校に行きますか？","ashita, gakko ni ikimasu ka?","Will you go to school tomorrow?",いいえ,iie,no,"いいえ、学校に行きません。","iie, gakko ni ikimasen.","No, I will not go to school tomorrow.",にいきません
+iku,polite_present_neg,"来週、東京に行きますか？","raishu, tokyo ni ikimasu ka?","Will you go to Tokyo next week?",いいえ,iie,no,"いいえ、東京に行きません。","iie, tokyo ni ikimasen.","No, I will not go to Tokyo next week.",にいきません
+iku,polite_present_neg,"今晩、レストランに行きますか？","konban, resutoran ni ikimasu ka?","Will you go to the restaurant this evening?",いいえ,iie,no,"いいえ、レストランに行きません。","iie, resutoran ni ikimasen.","No, I will not go to the restaurant this evening.",にいきません
+iku,polite_present_neg,"週末、海に行きますか？","shumatsu, umi ni ikimasu ka?","Will you go to the beach this weekend?",いいえ,iie,no,"いいえ、海に行きません。","iie, umi ni ikimasen.","No, I will not go to the beach this weekend.",にいきません
+iku,polite_present_neg,"金曜日、京都に行きますか？","kinyobi, kyoto ni ikimasu ka?","Will you go to Kyoto on Friday?",いいえ,iie,no,"いいえ、京都に行きません。","iie, kyoto ni ikimasen.","No, I will not go to Kyoto on Friday.",にいきません
+iku,polite_present_neg,"来年、日本に行きますか？","rainen, nihon ni ikimasu ka?","Will you go to Japan next year?",いいえ,iie,no,"いいえ、日本に行きません。","iie, nihon ni ikimasen.","No, I will not go to Japan next year.",にいきません
+iku,polite_present_neg,"彼は今夜映画に行きますか？","kare wa kon'ya eiga ni ikimasu ka?","Will he go to the movie tonight?",いいえ,iie,no,"いいえ、彼は映画に行きません。","iie, kare wa eiga ni ikimasen.","No, he will not go to the movie tonight.",にいきません
+iku,polite_present_neg,"彼女は明日学校に行きますか？","kanojo wa ashita gakko ni ikimasu ka?","Will she go to school tomorrow?",いいえ,iie,no,"いいえ、彼女は学校に行きません。","iie, kanojo wa gakko ni ikimasen.","No, she will not go to school tomorrow.",にいきません
+iku,polite_present_neg,"彼らは来週東京に行きますか？","karera wa raishu tokyo ni ikimasu ka?","Will they go to Tokyo next week?",いいえ,iie,no,"いいえ、彼らは東京に行きません。","iie, karera wa tokyo ni ikimasen.","No, they will not go to Tokyo next week.",にいきません
+iku,polite_present_neg,"今夜、映画に行きますか？","kon'ya, eiga ni ikimasu ka?","Are you going to the movie tonight?",いいえ,iie,no,"いいえ、行きません。","iie, ikimasen.","No, I am not going.",にいきません
+iku,polite_present_neg,"明日、学校に行きますか？","ashita, gakko ni ikimasu ka?","Will you go to school tomorrow?",いいえ,iie,no,"いいえ、行きません。","iie, ikimasen.","No, I will not go.",にいきません
+iku,polite_past_pos,"昨日、どこに行きましたか？","kino, doko ni ikimashita ka?","Where did you go yesterday?",東京,tokyo,Tokyo,"東京に行きました。","tokyo ni ikimashita.","I went to Tokyo.",にいきました
+iku,polite_past_pos,"先週、どこに行きましたか？","senshu, doko ni ikimashita ka?","Where did you go last week?",京都,kyoto,Kyoto,"京都に行きました。","kyoto ni ikimashita.","I went to Kyoto.",にいきました
+iku,polite_past_pos,"去年、どこに行きましたか？","kyonen, doko ni ikimashita ka?","Where did you go last year?",日本,nihon,Japan,"日本に行きました。","nihon ni ikimashita.","I went to Japan.",にいきました
+iku,polite_past_pos,"今朝、どこに行きましたか？","kesa, doko ni ikimashita ka?","Where did you go this morning?",病院,byoin,hospital,"病院に行きました。","byoin ni ikimashita.","I went to the hospital.",にいきました
+iku,polite_past_pos,"昨日、どこに行きましたか？","kino, doko ni ikimashita ka?","Where did you go yesterday?",会社,kaisha,office,"会社に行きました。","kaisha ni ikimashita.","I went to the office.",にいきました
+iku,polite_past_pos,"先週、どこに行きましたか？","senshu, doko ni ikimashita ka?","Where did you go last week?",山,yama,mountains,"山に行きました。","yama ni ikimashita.","I went to the mountains.",にいきました
+iku,polite_past_pos,"彼は昨日どこに行きましたか？","kare wa kino doko ni ikimashita ka?","Where did he go yesterday?",大阪,osaka,Osaka,"彼は大阪に行きました。","kare wa osaka ni ikimashita.","He went to Osaka.",にいきました
+iku,polite_past_pos,"彼女は先週どこに行きましたか？","kanojo wa senshu doko ni ikimashita ka?","Where did she go last week?",北海道,hokkaido,Hokkaido,"彼女は北海道に行きました。","kanojo wa hokkaido ni ikimashita.","She went to Hokkaido.",にいきました
+iku,polite_past_pos,"彼らは去年どこに行きましたか？","karera wa kyonen doko ni ikimashita ka?","Where did they go last year?",沖縄,okinawa,Okinawa,"彼らは沖縄に行きました。","karera wa okinawa ni ikimashita.","They went to Okinawa.",にいきました
+iku,polite_past_pos,"土曜日、どこに行きましたか？","doyobi, doko ni ikimashita ka?","Where did you go on Saturday?",公園,koen,park,"公園に行きました。","koen ni ikimashita.","I went to the park.",にいきました
+iku,polite_past_pos,"昨日、どこに行きましたか？","kino, doko ni ikimashita ka?","Where did you go yesterday?",図書館,toshokan,library,"図書館に行きました。","toshokan ni ikimashita.","I went to the library.",にいきました
+iku,polite_past_neg,"昨日、京都に行きましたか？","kino, kyoto ni ikimashita ka?","Did you go to Kyoto yesterday?",いいえ,iie,no,"いいえ、京都に行きませんでした。","iie, kyoto ni ikimasen deshita.","No, I did not go to Kyoto yesterday.",にいきませんでした
+iku,polite_past_neg,"先週、東京に行きましたか？","senshu, tokyo ni ikimashita ka?","Did you go to Tokyo last week?",いいえ,iie,no,"いいえ、東京に行きませんでした。","iie, tokyo ni ikimasen deshita.","No, I did not go to Tokyo last week.",にいきませんでした
+iku,polite_past_neg,"去年、日本に行きましたか？","kyonen, nihon ni ikimashita ka?","Did you go to Japan last year?",いいえ,iie,no,"いいえ、日本に行きませんでした。","iie, nihon ni ikimasen deshita.","No, I did not go to Japan last year.",にいきませんでした
+iku,polite_past_neg,"今朝、病院に行きましたか？","kesa, byoin ni ikimashita ka?","Did you go to the hospital this morning?",いいえ,iie,no,"いいえ、病院に行きませんでした。","iie, byoin ni ikimasen deshita.","No, I did not go to the hospital this morning.",にいきませんでした
+iku,polite_past_neg,"昨日、学校に行きましたか？","kino, gakko ni ikimashita ka?","Did you go to school yesterday?",いいえ,iie,no,"いいえ、学校に行きませんでした。","iie, gakko ni ikimasen deshita.","No, I did not go to school yesterday.",にいきませんでした
+iku,polite_past_neg,"先週、海に行きましたか？","senshu, umi ni ikimashita ka?","Did you go to the beach last week?",いいえ,iie,no,"いいえ、海に行きませんでした。","iie, umi ni ikimasen deshita.","No, I did not go to the beach last week.",にいきませんでした
+iku,polite_past_neg,"彼は昨日京都に行きましたか？","kare wa kino kyoto ni ikimashita ka?","Did he go to Kyoto yesterday?",いいえ,iie,no,"いいえ、彼は京都に行きませんでした。","iie, kare wa kyoto ni ikimasen deshita.","No, he did not go to Kyoto yesterday.",にいきませんでした
+iku,polite_past_neg,"彼女は先週東京に行きましたか？","kanojo wa senshu tokyo ni ikimashita ka?","Did she go to Tokyo last week?",いいえ,iie,no,"いいえ、彼女は東京に行きませんでした。","iie, kanojo wa tokyo ni ikimasen deshita.","No, she did not go to Tokyo last week.",にいきませんでした
+iku,polite_past_neg,"彼らは去年日本に行きましたか？","karera wa kyonen nihon ni ikimashita ka?","Did they go to Japan last year?",いいえ,iie,no,"いいえ、彼らは日本に行きませんでした。","iie, karera wa nihon ni ikimasen deshita.","No, they did not go to Japan last year.",にいきませんでした
+iku,polite_past_neg,"昨日、京都に行きましたか？","kino, kyoto ni ikimashita ka?","Did you go to Kyoto yesterday?",いいえ,iie,no,"いいえ、行きませんでした。","iie, ikimasen deshita.","No, I did not go.",にいきませんでした
+iku,casual_present_pos,"明日、どこに行く？","ashita, doko ni iku?","Where are you going tomorrow?",ラーメン屋,ramen'ya,ramen shop,"ラーメン屋に行く。","ramen'ya ni iku.","I'm going to the ramen shop.",にいく
+iku,casual_present_pos,"今夜、どこに行く？","kon'ya, doko ni iku?","Where are you going tonight?",カフェ,kafe,cafe,"カフェに行く。","kafe ni iku.","I'm going to the cafe.",にいく
+iku,casual_present_pos,"来週、どこに行く？","raishu, doko ni iku?","Where are you going next week?",京都,kyoto,Kyoto,"京都に行く。","kyoto ni iku.","I'm going to Kyoto.",にいく
+iku,casual_present_pos,"週末、どこに行く？","shumatsu, doko ni iku?","Where are you going this weekend?",海,umi,beach,"海に行く。","umi ni iku.","I'm going to the beach.",にいく
+iku,casual_present_pos,"明日、どこに行く？","ashita, doko ni iku?","Where are you going tomorrow?",友達の家,tomodachi no ie,friend's house,"友達の家に行く。","tomodachi no ie ni iku.","I'm going to my friend's house.",にいく
+iku,casual_present_pos,"彼は明日どこに行く？","kare wa ashita doko ni iku?","Where is he going tomorrow?",大阪,osaka,Osaka,"彼は大阪に行く。","kare wa osaka ni iku.","He's going to Osaka.",にいく
+iku,casual_present_pos,"彼女は今夜どこに行く？","kanojo wa kon'ya doko ni iku?","Where is she going tonight?",映画,eiga,movie,"彼女は映画に行く。","kanojo wa eiga ni iku.","She's going to the movie.",にいく
+iku,casual_present_pos,"彼らは週末どこに行く？","karera wa shumatsu doko ni iku?","Where are they going this weekend?",山,yama,mountains,"彼らは山に行く。","karera wa yama ni iku.","They're going to the mountains.",にいく
+iku,casual_present_pos,"今晩、どこに行く？","konban, doko ni iku?","Where are you going this evening?",駅,eki,station,"駅に行く。","eki ni iku.","I'm going to the station.",にいく
+iku,casual_present_pos,"来年、どこに行く？","rainen, doko ni iku?","Where are you going next year?",日本,nihon,Japan,"日本に行く。","nihon ni iku.","I'm going to Japan.",にいく
+iku,casual_present_neg,"今日、学校に行く？","kyo, gakko ni iku?","Are you going to school today?",ううん,uun,no,"ううん、学校に行かない。","uun, gakko ni ikanai.","Nah, I'm not going to school today.",にいかない
+iku,casual_present_neg,"今夜、映画に行く？","kon'ya, eiga ni iku?","Are you going to the movie tonight?",ううん,uun,no,"ううん、映画に行かない。","uun, eiga ni ikanai.","Nah, I'm not going to the movie tonight.",にいかない
+iku,casual_present_neg,"明日、東京に行く？","ashita, tokyo ni iku?","Are you going to Tokyo tomorrow?",ううん,uun,no,"ううん、東京に行かない。","uun, tokyo ni ikanai.","Nah, I'm not going to Tokyo tomorrow.",にいかない
+iku,casual_present_neg,"週末、海に行く？","shumatsu, umi ni iku?","Are you going to the beach this weekend?",ううん,uun,no,"ううん、海に行かない。","uun, umi ni ikanai.","Nah, I'm not going to the beach this weekend.",にいかない
+iku,casual_present_neg,"今夜、カフェに行く？","kon'ya, kafe ni iku?","Are you going to the cafe tonight?",ううん,uun,no,"ううん、カフェに行かない。","uun, kafe ni ikanai.","Nah, I'm not going to the cafe tonight.",にいかない
+iku,casual_present_neg,"彼は今日学校に行く？","kare wa kyo gakko ni iku?","Is he going to school today?",ううん,uun,no,"ううん、彼は学校に行かない。","uun, kare wa gakko ni ikanai.","Nah, he's not going to school today.",にいかない
+iku,casual_present_neg,"彼女は今夜映画に行く？","kanojo wa kon'ya eiga ni iku?","Is she going to the movie tonight?",ううん,uun,no,"ううん、彼女は映画に行かない。","uun, kanojo wa eiga ni ikanai.","Nah, she's not going to the movie tonight.",にいかない
+iku,casual_present_neg,"彼らは週末海に行く？","karera wa shumatsu umi ni iku?","Are they going to the beach this weekend?",ううん,uun,no,"ううん、彼らは海に行かない。","uun, karera wa umi ni ikanai.","Nah, they're not going to the beach this weekend.",にいかない
+iku,casual_present_neg,"今日、学校に行く？","kyo, gakko ni iku?","Are you going to school today?",ううん,uun,no,"ううん、行かない。","uun, ikanai.","Nah, I'm not going.",にいかない
+iku,casual_present_neg,"今夜、映画に行く？","kon'ya, eiga ni iku?","Are you going to the movie tonight?",ううん,uun,no,"ううん、行かない。","uun, ikanai.","Nah, not going.",にいかない
+iku,casual_past_pos,"昨日、どこに行った？","kino, doko ni itta?","Where did you go yesterday?",公園,koen,park,"公園に行った。","koen ni itta.","I went to the park.",にいった
+iku,casual_past_pos,"先週、どこに行った？","senshu, doko ni itta?","Where did you go last week?",京都,kyoto,Kyoto,"京都に行った。","kyoto ni itta.","I went to Kyoto.",にいった
+iku,casual_past_pos,"昨日、どこに行った？","kino, doko ni itta?","Where did you go yesterday?",ラーメン屋,ramen'ya,ramen shop,"ラーメン屋に行った。","ramen'ya ni itta.","I went to the ramen shop.",にいった
+iku,casual_past_pos,"今朝、どこに行った？","kesa, doko ni itta?","Where did you go this morning?",駅,eki,station,"駅に行った。","eki ni itta.","I went to the station.",にいった
+iku,casual_past_pos,"去年、どこに行った？","kyonen, doko ni itta?","Where did you go last year?",日本,nihon,Japan,"日本に行った。","nihon ni itta.","I went to Japan.",にいった
+iku,casual_past_pos,"昨日、どこに行った？","kino, doko ni itta?","Where did you go yesterday?",友達の家,tomodachi no ie,friend's house,"友達の家に行った。","tomodachi no ie ni itta.","I went to my friend's house.",にいった
+iku,casual_past_pos,"彼は昨日どこに行った？","kare wa kino doko ni itta?","Where did he go yesterday?",大阪,osaka,Osaka,"彼は大阪に行った。","kare wa osaka ni itta.","He went to Osaka.",にいった
+iku,casual_past_pos,"彼女は先週どこに行った？","kanojo wa senshu doko ni itta?","Where did she go last week?",北海道,hokkaido,Hokkaido,"彼女は北海道に行った。","kanojo wa hokkaido ni itta.","She went to Hokkaido.",にいった
+iku,casual_past_pos,"彼らは去年どこに行った？","karera wa kyonen doko ni itta?","Where did they go last year?",沖縄,okinawa,Okinawa,"彼らは沖縄に行った。","karera wa okinawa ni itta.","They went to Okinawa.",にいった
+iku,casual_past_pos,"土曜日、どこに行った？","doyobi, doko ni itta?","Where did you go on Saturday?",スーパー,supa,supermarket,"スーパーに行った。","supa ni itta.","I went to the supermarket.",にいった
+iku,casual_past_pos,"昨日、どこに行った？","kino, doko ni itta?","Where did you go yesterday?",図書館,toshokan,library,"図書館に行った。","toshokan ni itta.","I went to the library.",にいった
+iku,casual_past_neg,"昨日、デパートに行った？","kino, depato ni itta?","Did you go to the department store yesterday?",ううん,uun,no,"ううん、デパートに行かなかった。","uun, depato ni ikanakatta.","Nah, I didn't go to the department store yesterday.",にいかなかった
+iku,casual_past_neg,"先週、京都に行った？","senshu, kyoto ni itta?","Did you go to Kyoto last week?",ううん,uun,no,"ううん、京都に行かなかった。","uun, kyoto ni ikanakatta.","Nah, I didn't go to Kyoto last week.",にいかなかった
+iku,casual_past_neg,"昨日、学校に行った？","kino, gakko ni itta?","Did you go to school yesterday?",ううん,uun,no,"ううん、学校に行かなかった。","uun, gakko ni ikanakatta.","Nah, I didn't go to school yesterday.",にいかなかった
+iku,casual_past_neg,"今朝、病院に行った？","kesa, byoin ni itta?","Did you go to the hospital this morning?",ううん,uun,no,"ううん、病院に行かなかった。","uun, byoin ni ikanakatta.","Nah, I didn't go to the hospital this morning.",にいかなかった
+iku,casual_past_neg,"去年、日本に行った？","kyonen, nihon ni itta?","Did you go to Japan last year?",ううん,uun,no,"ううん、日本に行かなかった。","uun, nihon ni ikanakatta.","Nah, I didn't go to Japan last year.",にいかなかった
+iku,casual_past_neg,"彼は昨日デパートに行った？","kare wa kino depato ni itta?","Did he go to the department store yesterday?",ううん,uun,no,"ううん、彼はデパートに行かなかった。","uun, kare wa depato ni ikanakatta.","Nah, he didn't go to the department store yesterday.",にいかなかった
+iku,casual_past_neg,"彼女は先週京都に行った？","kanojo wa senshu kyoto ni itta?","Did she go to Kyoto last week?",ううん,uun,no,"ううん、彼女は京都に行かなかった。","uun, kanojo wa kyoto ni ikanakatta.","Nah, she didn't go to Kyoto last week.",にいかなかった
+iku,casual_past_neg,"彼らは去年日本に行った？","karera wa kyonen nihon ni itta?","Did they go to Japan last year?",ううん,uun,no,"ううん、彼らは日本に行かなかった。","uun, karera wa nihon ni ikanakatta.","Nah, they didn't go to Japan last year.",にいかなかった
+iku,casual_past_neg,"昨日、デパートに行った？","kino, depato ni itta?","Did you go to the department store yesterday?",ううん,uun,no,"ううん、行かなかった。","uun, ikanakatta.","Nah, I didn't go.",にいかなかった
+iku,te_request,"道が分かりません。","michi ga wakarimasen.","I don't know the way.",あそこ,asoko,over there,"あそこに行ってください。","asoko ni itte kudasai.","Please go over there.",にいってください
+iku,te_request,"駅に行きたいですが、道が分かりません。","eki ni ikitai desu ga, michi ga wakarimasen.","I want to go to the station, but I don't know the way.",駅,eki,station,"駅に行ってください。","eki ni itte kudasai.","Please go to the station.",にいってください
+iku,te_request,"病院に行きたいですが、道が分かりません。","byoin ni ikitai desu ga, michi ga wakarimasen.","I want to go to the hospital, but I don't know the way.",病院,byoin,hospital,"病院に行ってください。","byoin ni itte kudasai.","Please go to the hospital.",にいってください
+iku,te_request,"トイレに行きたいですが、道が分かりません。","toire ni ikitai desu ga, michi ga wakarimasen.","I want to go to the toilet, but I don't know the way.",トイレ,toire,toilet,"トイレに行ってください。","toire ni itte kudasai.","Please go to the toilet.",にいってください
+iku,te_request,"京都駅に行きたいですが、道が分かりません。","kyoto-eki ni ikitai desu ga, michi ga wakarimasen.","I want to go to Kyoto Station, but I don't know the way.",京都駅,kyoto-eki,Kyoto Station,"京都駅に行ってください。","kyoto-eki ni itte kudasai.","Please go to Kyoto Station.",にいってください
+iku,te_request,"空港に行きたいですが、道が分かりません。","kuko ni ikitai desu ga, michi ga wakarimasen.","I want to go to the airport, but I don't know the way.",空港,kuko,airport,"空港に行ってください。","kuko ni itte kudasai.","Please go to the airport.",にいってください
+iku,te_continuous,"今、どこに行っていますか？","ima, doko ni itte imasu ka?","Where are you going now?",会社,kaisha,office,"会社に行っています。","kaisha ni itte imasu.","I am going to the office.",にいっています
+iku,te_continuous,"今、どこに行っていますか？","ima, doko ni itte imasu ka?","Where are you going now?",学校,gakko,school,"学校に行っています。","gakko ni itte imasu.","I am going to school.",にいっています
+iku,te_continuous,"今、どこに行っていますか？","ima, doko ni itte imasu ka?","Where are you going now?",駅,eki,station,"駅に行っています。","eki ni itte imasu.","I am going to the station.",にいっています
+iku,te_continuous,"今、どこに行っていますか？","ima, doko ni itte imasu ka?","Where are you going now?",空港,kuko,airport,"空港に行っています。","kuko ni itte imasu.","I am going to the airport.",にいっています
+iku,te_continuous,"今、どこに行っていますか？","ima, doko ni itte imasu ka?","Where are you going now?",東京,tokyo,Tokyo,"東京に行っています。","tokyo ni itte imasu.","I am going to Tokyo.",にいっています
+iku,te_continuous,"彼は今どこに行っていますか？","kare wa ima doko ni itte imasu ka?","Where is he going now?",大阪,osaka,Osaka,"彼は大阪に行っています。","kare wa osaka ni itte imasu.","He is going to Osaka.",にいっています
+iku,te_continuous,"彼女は今どこに行っていますか？","kanojo wa ima doko ni itte imasu ka?","Where is she going now?",会社,kaisha,office,"彼女は会社に行っています。","kanojo wa kaisha ni itte imasu.","She is going to the office.",にいっています
+iku,te_continuous,"彼らは今どこに行っていますか？","karera wa ima doko ni itte imasu ka?","Where are they going now?",学校,gakko,school,"彼らは学校に行っています。","karera wa gakko ni itte imasu.","They are going to school.",にいっています
+iku,te_continuous,"今、どこに行っていますか？","ima, doko ni itte imasu ka?","Where are you heading right now?",家,ie,home,"家に行っています。","ie ni itte imasu.","I am heading home.",にいっています
+iku,te_continuous,"今、どこに行っていますか？","ima, doko ni itte imasu ka?","Where are you going now?",京都,kyoto,Kyoto,"京都に行っています。","kyoto ni itte imasu.","I am going to Kyoto.",にいっています
+iku,polite_present_neg,"今夜、あなたたちは映画に行きますか？","kon'ya, anatatachi wa eiga ni ikimasu ka?","Are you (plural) going to the movies tonight?",いいえ,iie,no,"いいえ、私たちは映画に行きません。","iie, watashitachi wa eiga ni ikimasen.","No, we are not going to the movies tonight.",にいきません
+iku,polite_present_neg,"来週、あなたたちは京都に行きますか？","raishu, anatatachi wa kyoto ni ikimasu ka?","Are you (plural) going to Kyoto next week?",いいえ,iie,no,"いいえ、私たちは京都に行きません。","iie, watashitachi wa kyoto ni ikimasen.","No, we are not going to Kyoto next week.",にいきません
+iku,polite_present_neg,"今夜、あなたたちは映画に行きますか？","kon'ya, anatatachi wa eiga ni ikimasu ka?","Are you (plural) going to the movies tonight?",いいえ,iie,no,"いいえ、私たちは行きません。","iie, watashitachi wa ikimasen.","No, we are not going.",にいきません
+iku,casual_present_neg,"今夜、あなたたちは映画に行く？","kon'ya, anatatachi wa eiga ni iku?","Are you (plural) going to the movie tonight?",ううん,uun,no,"ううん、私たちは映画に行かない。","uun, watashitachi wa eiga ni ikanai.","Nah, we are not going to the movie tonight.",にいかない
+iku,casual_present_neg,"週末、あなたたちは海に行く？","shumatsu, anatatachi wa umi ni iku?","Are you (plural) going to the beach this weekend?",ううん,uun,no,"ううん、私たちは海に行かない。","uun, watashitachi wa umi ni ikanai.","Nah, we are not going to the beach this weekend.",にいかない
+iku,casual_present_neg,"今夜、あなたたちは映画に行く？","kon'ya, anatatachi wa eiga ni iku?","Are you (plural) going to the movie tonight?",ううん,uun,no,"ううん、私たちは行かない。","uun, watashitachi wa ikanai.","Nah, we are not going.",にいかない
+iku,polite_past_neg,"昨日、あなたたちは京都に行きましたか？","kino, anatatachi wa kyoto ni ikimashita ka?","Did you (plural) go to Kyoto yesterday?",いいえ,iie,no,"いいえ、私たちは京都に行きませんでした。","iie, watashitachi wa kyoto ni ikimasen deshita.","No, we did not go to Kyoto yesterday.",にいきませんでした
+iku,polite_past_neg,"先週、あなたたちは東京に行きましたか？","senshu, anatatachi wa tokyo ni ikimashita ka?","Did you (plural) go to Tokyo last week?",いいえ,iie,no,"いいえ、私たちは東京に行きませんでした。","iie, watashitachi wa tokyo ni ikimasen deshita.","No, we did not go to Tokyo last week.",にいきませんでした
+iku,polite_past_neg,"昨日、あなたたちは京都に行きましたか？","kino, anatatachi wa kyoto ni ikimashita ka?","Did you (plural) go to Kyoto yesterday?",いいえ,iie,no,"いいえ、私たちは行きませんでした。","iie, watashitachi wa ikimasen deshita.","No, we did not go.",にいきませんでした
+iku,casual_past_neg,"昨日、あなたたちはデパートに行った？","kino, anatatachi wa depato ni itta?","Did you (plural) go to the department store yesterday?",ううん,uun,no,"ううん、私たちはデパートに行かなかった。","uun, watashitachi wa depato ni ikanakatta.","Nah, we didn't go to the department store yesterday.",にいかなかった
+iku,casual_past_neg,"昨日、あなたたちはデパートに行った？","kino, anatatachi wa depato ni itta?","Did you (plural) go to the department store yesterday?",ううん,uun,no,"ううん、私たちは行かなかった。","uun, watashitachi wa ikanakatta.","Nah, we didn't go.",にいかなかった
+iku,casual_past_pos,"土曜日、どこに行った？","doyobi, doko ni itta?","Where did you go on Saturday?",友達の家,tomodachi no ie,friend's house,"友達の家に行った。","tomodachi no ie ni itta.","I went to my friend's house.",にいった
+iku,polite_past_neg,"先週、海に行きましたか？","senshu, umi ni ikimashita ka?","Did you go to the beach last week?",いいえ,iie,no,"いいえ、行きませんでした。","iie, ikimasen deshita.","No, I didn't go.",にいきませんでした
