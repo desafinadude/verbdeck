@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type PointerEvent as ReactPointerEvent,
+} from "react";
+import { Icon } from "@iconify/react";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
 import {
   generateQuestions,
@@ -30,6 +37,7 @@ export default function Page() {
     Array(TOTAL).fill(false)
   );
   const [showRomaji, setShowRomaji] = useState(false);
+  const [showEnglish, setShowEnglish] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
   const [status, setStatus] = useState("");
   const [statusTone, setStatusTone] = useState<"" | "ok" | "no">("");
@@ -46,6 +54,33 @@ export default function Page() {
   const currentQuestion: Question | null = questions[index] ?? null;
   const doneCount = progress.filter(Boolean).length;
 
+  /** Romaji & English are hold-to-reveal, both off by default. While neither
+   * is held we return an empty string so the reserved line never collapses. */
+  const reveal = (romaji: string, english: string) =>
+    showRomaji ? romaji : showEnglish ? english : "";
+
+  /** Press-and-hold handlers: pointer down -> show, release/cancel -> hide. */
+  const holdHandlers = (setter: (v: boolean) => void) => ({
+    onPointerDown: (e: ReactPointerEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      try {
+        e.currentTarget.setPointerCapture(e.pointerId);
+      } catch {
+        /* pointer capture unsupported */
+      }
+      setter(true);
+    },
+    onPointerUp: (e: ReactPointerEvent<HTMLButtonElement>) => {
+      try {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      } catch {
+        /* ignore */
+      }
+      setter(false);
+    },
+    onPointerCancel: () => setter(false),
+  });
+
   // Generate questions when seed changes (or on first mount).
   useEffect(() => {
     setQuestions(generateQuestions(VERB_KEY, seed || Date.now()));
@@ -57,7 +92,6 @@ export default function Page() {
     setTranscript("");
     setShowAnswer(false);
     setPhase("ask");
-    await speak(q.question);
   }, []);
 
   const goToQuestion = useCallback(
@@ -72,7 +106,6 @@ export default function Page() {
       setStatusTone("");
       setTranscript("");
       setPhase("ask");
-      speak(questions[targetIdx].question);
     },
     [questions]
   );
@@ -94,7 +127,6 @@ export default function Page() {
     setStatus("");
     setStatusTone("");
     setPhase("ask");
-    if (q) speak(q.answer);
   }, [questions, index]);
 
   const startMic = useCallback(() => {
@@ -125,14 +157,12 @@ export default function Page() {
             next[index] = true;
             return next;
           });
-          speak(q.answer);
           setPhase("ask");
         } else {
           setStatus(result.reason || "Try again");
           setStatusTone("no");
           setShowAnswer(true);
           setPhase("ask");
-          speak(q.answer);
         }
       },
       (err) => {
@@ -229,18 +259,9 @@ export default function Page() {
             className="topbar-btn"
             onClick={goHome}
           >
-            &larr; Verbs
+            <Icon icon="ph:caret-left-bold" /> Verbs
           </button>
         )}
-        {phase === "intro" && <span className="spacer" />}
-        <button
-          type="button"
-          className={`topbar-btn romaji-btn ${showRomaji ? "is-on" : ""}`}
-          onClick={() => setShowRomaji((v) => !v)}
-          aria-pressed={showRomaji}
-        >
-          Romaji
-        </button>
       </div>
 
       <main className="shell">
@@ -279,7 +300,7 @@ export default function Page() {
                     <span className="verb-card__kanji">{v.verb}</span>
                     <span className="verb-card__meta">[{v.particle}]</span>
                     <span className="verb-card__en">
-                      {showRomaji ? v.verbRomaji : v.verbEnglish}
+                      {reveal(v.verbRomaji, v.verbEnglish)}
                     </span>
                   </button>
                 );
@@ -298,42 +319,35 @@ export default function Page() {
             <div className="hero">
               <div className="kanji">{VERB.verb}</div>
               <div className="english">
-                {showRomaji ? VERB.verbRomaji : VERB.verbEnglish}
+                {reveal(VERB.verbRomaji, VERB.verbEnglish)}
               </div>
             </div>
 
-            <div className="progress-row">
-              <button
-                type="button"
-                className="nav-btn"
-                onClick={goPrev}
-                disabled={index === 0}
-              >
-                &larr;
-              </button>
-              <div className="progress">
-                {progress.map((done, i) => (
-                  <span
-                    key={i}
-                    className={`dot ${i === index ? "is-active" : ""} ${
-                      done ? "is-done" : ""
-                    }`}
-                  />
-                ))}
-              </div>
-              <button
-                type="button"
-                className="nav-btn"
-                onClick={goNext}
-                disabled={index === questions.length - 1}
-              >
-                &rarr;
-              </button>
+            <div className="progress">
+              {progress.map((done, i) => (
+                <span
+                  key={i}
+                  className={`dot ${i === index ? "is-active" : ""} ${
+                    done ? "is-done" : ""
+                  }`}
+                />
+              ))}
             </div>
 
             {currentQuestion && (
               <>
-                <div className="state">{currentQuestion.state}</div>
+              <div className="carousel">
+                <button
+                  type="button"
+                  className="carousel-nav carousel-nav--prev"
+                  onClick={goPrev}
+                  disabled={index === 0}
+                  aria-label="Previous question"
+                >
+                  <Icon icon="ph:caret-left-bold" />
+                </button>
+                <div className="carousel-card">
+                  <div className="state-tag">{currentQuestion.state}</div>
 
                 <div
                   className="question question-clickable"
@@ -348,9 +362,10 @@ export default function Page() {
                 >
                   {currentQuestion.question}
                   <div className="english">
-                    {showRomaji
-                      ? currentQuestion.questionRomaji
-                      : currentQuestion.questionEnglish}
+                    {reveal(
+                      currentQuestion.questionRomaji,
+                      currentQuestion.questionEnglish
+                    )}
                   </div>
                 </div>
 
@@ -369,13 +384,14 @@ export default function Page() {
                     {currentQuestion.hintKeyword}
                   </div>
                   <div className="english">
-                    {showRomaji
-                      ? currentQuestion.hintKeywordRomaji
-                      : currentQuestion.hintEnglish}
+                    {reveal(
+                      currentQuestion.hintKeywordRomaji,
+                      currentQuestion.hintEnglish
+                    )}
                   </div>
                 </div>
 
-                {showAnswer && (
+                {showAnswer ? (
                   <div
                     className="answer-box answer-clickable"
                     onClick={() => {
@@ -389,11 +405,14 @@ export default function Page() {
                   >
                     <div className="answer-ja">{currentQuestion.answer}</div>
                     <div className="english">
-                      {showRomaji
-                        ? currentQuestion.answerRomaji
-                        : currentQuestion.answerEnglish}
+                      {reveal(
+                        currentQuestion.answerRomaji,
+                        currentQuestion.answerEnglish
+                      )}
                     </div>
                   </div>
+                ) : (
+                  <div className="answer-box answer-placeholder" aria-hidden="true" />
                 )}
 
                 {transcript && (
@@ -409,78 +428,122 @@ export default function Page() {
                     ? "Wrong"
                     : status}
                 </div>
+                </div>
+                <button
+                  type="button"
+                  className="carousel-nav carousel-nav--next"
+                  onClick={goNext}
+                  disabled={index === questions.length - 1}
+                  aria-label="Next question"
+                >
+                  <Icon icon="ph:caret-right-bold" />
+                </button>
+              </div>
 
-                {showAnswer ? (
-                  <div className="mic-wrap">
-                    {index === questions.length - 1 ? (
-                      <button
-                        type="button"
-                        className="mic primary-action"
-                        onClick={() => {
-                          setProgress((prev) => {
-                            const next = [...prev];
-                            next[index] = true;
-                            if (next.every(Boolean)) {
-                              stopSpeaking();
-                              setPhase("complete");
-                            }
-                            return next;
-                          });
-                        }}
-                      >
-                        Complete
-                      </button>
-                    ) : (
-                      <button
-                        type="button"
-                        className="mic primary-action"
-                        onClick={goNext}
-                      >
-                        Next &rarr;
-                      </button>
-                    )}
-                  </div>
-                ) : (
-                  <div className="action-row">
+              {showAnswer ? (
+                <div className="mic-wrap">
+                  {index === questions.length - 1 ? (
                     <button
                       type="button"
-                      className={`mic ${
-                        phase === "listening" ? "is-recording" : ""
-                      }`}
-                      aria-label="Press and hold to speak"
-                      disabled={!supported || phase === "evaluating"}
-                      onPointerDown={(e) => {
-                        e.preventDefault();
-                        if (phase === "ask") startMic();
-                      }}
-                      onPointerUp={() => {
-                        if (phase === "listening") stopMic();
-                      }}
-                      onPointerLeave={() => {
-                        if (phase === "listening") stopMic();
+                      className="mic primary-action"
+                      onClick={() => {
+                        setProgress((prev) => {
+                          const next = [...prev];
+                          next[index] = true;
+                          if (next.every(Boolean)) {
+                            stopSpeaking();
+                            setPhase("complete");
+                          }
+                          return next;
+                        });
                       }}
                     >
-                      {phase === "listening"
-                        ? "Recording"
-                        : phase === "evaluating"
-                        ? "Evaluating..."
-                        : "Hold to Speak"}
+                      Complete
                     </button>
+                  ) : (
                     <button
                       type="button"
-                      className="dontknow-btn"
-                      onClick={dontKnow}
-                      disabled={phase === "listening" || phase === "evaluating"}
+                      className="mic primary-action"
+                      onClick={goNext}
                     >
-                      ??
+                      Next <Icon icon="ph:caret-right-bold" />
                     </button>
-                  </div>
-                )}
+                  )}
+                </div>
+              ) : (
+                <div className="mic-wrap" aria-hidden="true" />
+              )}
               </>
             )}
           </section>
         )}
       </main>
+
+      <nav className="bottombar" aria-label="Action bar">
+        <div className="bottombar-left">
+          <button
+            type="button"
+            className={`bottombar-btn ${showRomaji ? "is-on" : ""}`}
+            aria-pressed={showRomaji}
+            {...holdHandlers(setShowRomaji)}
+          >
+            RO
+          </button>
+          <button
+            type="button"
+            className={`bottombar-btn ${showEnglish ? "is-on" : ""}`}
+            aria-pressed={showEnglish}
+            {...holdHandlers(setShowEnglish)}
+          >
+            EN
+          </button>
+        </div>
+
+        <div className="bottombar-center">
+          <button
+            type="button"
+            className={`bottombar-mic ${
+              phase === "listening" ? "is-recording" : ""
+            }`}
+            aria-label={
+              phase === "listening"
+                ? "Recording — release to submit"
+                : phase === "evaluating"
+                ? "Evaluating"
+                : "Hold to speak"
+            }
+            disabled={!supported || phase === "evaluating"}
+            onPointerDown={(e) => {
+              e.preventDefault();
+              if (phase === "ask") startMic();
+            }}
+            onPointerUp={() => {
+              if (phase === "listening") stopMic();
+            }}
+            onPointerCancel={() => {
+              if (phase === "listening") stopMic();
+            }}
+          >
+            {phase === "evaluating" ? (
+              <Icon icon="ph:spinner-gap" className="spin" />
+            ) : (
+              <Icon icon="ph:microphone-bold" />
+            )}
+          </button>
+        </div>
+
+        <div className="bottombar-right">
+          <button
+            type="button"
+            className="bottombar-btn"
+            onClick={dontKnow}
+            disabled={phase === "listening" || phase === "evaluating"}
+            aria-label="Don't know"
+          >
+            ??
+          </button>
+        </div>
+      </nav>
     </>
   );
 }

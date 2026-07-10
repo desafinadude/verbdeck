@@ -1,5 +1,5 @@
 /* VerbDeck service worker — offline shell caching. */
-const VERSION = "verbdeck-v2";
+const VERSION = "verbdeck-v3";
 const SHELL = ["/", "/manifest.json", "/icons/icon.svg"];
 
 self.addEventListener("install", (event) => {
