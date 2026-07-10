@@ -25,12 +25,12 @@ import {
 
 type Phase = "intro" | "ask" | "listening" | "evaluating" | "complete";
 
-const VERB_KEY = "iku";
-const VERB = VERBS[VERB_KEY];
 const TOTAL = 10;
 
 export default function Page() {
   const [phase, setPhase] = useState<Phase>("intro");
+  const [verbKey, setVerbKey] = useState("iku");
+  const verb = VERBS[verbKey];
   const [questions, setQuestions] = useState<Question[]>([]);
   const [index, setIndex] = useState(0);
   const [progress, setProgress] = useState<boolean[]>(() =>
@@ -81,10 +81,10 @@ export default function Page() {
     onPointerCancel: () => setter(false),
   });
 
-  // Generate questions when seed changes (or on first mount).
+  // Generate questions when seed or verb changes (or on first mount).
   useEffect(() => {
-    setQuestions(generateQuestions(VERB_KEY, seed || Date.now()));
-  }, [seed]);
+    setQuestions(generateQuestions(verbKey, seed || Date.now()));
+  }, [seed, verbKey]);
 
   const ask = useCallback(async (q: Question) => {
     setStatus("");
@@ -155,6 +155,10 @@ export default function Page() {
           setProgress((prev) => {
             const next = [...prev];
             next[index] = true;
+            if (next.every(Boolean)) {
+              stopSpeaking();
+              setPhase("complete");
+            }
             return next;
           });
           setPhase("ask");
@@ -185,13 +189,25 @@ export default function Page() {
     recognizerRef.current = null;
   }, []);
 
-  const beginDialogue = useCallback(async () => {
-    stopSpeaking();
-    const firstUndone = progress.findIndex((v) => !v);
-    const startAt = firstUndone === -1 ? 0 : firstUndone;
-    setIndex(startAt);
-    if (questions[startAt]) await ask(questions[startAt]);
-  }, [progress, questions, ask]);
+  const beginDialogue = useCallback(
+    async (key: string) => {
+      stopSpeaking();
+      if (key !== verbKey) {
+        setVerbKey(key);
+        setProgress(Array(TOTAL).fill(false));
+        setIndex(0);
+        setStatus("");
+        setStatusTone("");
+        setTranscript("");
+        setShowAnswer(false);
+      }
+      const firstUndone = progress.findIndex((v) => !v);
+      const startAt = firstUndone === -1 ? 0 : firstUndone;
+      setIndex(startAt);
+      if (questions[startAt]) await ask(questions[startAt]);
+    },
+    [progress, questions, ask, verbKey]
+  );
 
   const restart = useCallback(() => {
     stopSpeaking();
@@ -217,7 +233,6 @@ export default function Page() {
     setTranscript("");
     setShowAnswer(false);
     setSeed(Date.now());
-    setPhase("intro");
   }, []);
 
   const goHome = useCallback(() => {
@@ -262,12 +277,22 @@ export default function Page() {
             <Icon icon="ph:caret-left-bold" /> Verbs
           </button>
         )}
+        {phase !== "intro" && (
+          <button
+            type="button"
+            className="topbar-btn"
+            onClick={newSession}
+            aria-label="New questions"
+          >
+            <Icon icon="ph:arrows-clockwise-bold" />
+          </button>
+        )}
       </div>
 
       <main className="shell">
         {phase === "complete" ? (
           <section className="complete">
-            <h1>{VERB.verb} — Complete</h1>
+            <h1>{verb.verb} — Complete</h1>
             <p>
               {doneCount} / {TOTAL} forms mastered.
             </p>
@@ -295,7 +320,7 @@ export default function Page() {
                     key={key}
                     type="button"
                     className="verb-card"
-                    onClick={beginDialogue}
+                    onClick={() => beginDialogue(key)}
                   >
                     <span className="verb-card__kanji">{v.verb}</span>
                     <span className="verb-card__meta">[{v.particle}]</span>
@@ -317,9 +342,9 @@ export default function Page() {
         ) : (
           <section className="qa">
             <div className="hero">
-              <div className="kanji">{VERB.verb}</div>
+              <div className="kanji">{verb.verb}</div>
               <div className="english">
-                {reveal(VERB.verbRomaji, VERB.verbEnglish)}
+                {reveal(verb.verbRomaji, verb.verbEnglish)}
               </div>
             </div>
 
@@ -440,39 +465,7 @@ export default function Page() {
                 </button>
               </div>
 
-              {showAnswer ? (
-                <div className="mic-wrap">
-                  {index === questions.length - 1 ? (
-                    <button
-                      type="button"
-                      className="mic primary-action"
-                      onClick={() => {
-                        setProgress((prev) => {
-                          const next = [...prev];
-                          next[index] = true;
-                          if (next.every(Boolean)) {
-                            stopSpeaking();
-                            setPhase("complete");
-                          }
-                          return next;
-                        });
-                      }}
-                    >
-                      Complete
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      className="mic primary-action"
-                      onClick={goNext}
-                    >
-                      Next <Icon icon="ph:caret-right-bold" />
-                    </button>
-                  )}
-                </div>
-              ) : (
-                <div className="mic-wrap" aria-hidden="true" />
-              )}
+              <div className="mic-wrap" aria-hidden="true" />
               </>
             )}
           </section>

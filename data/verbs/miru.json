@@ -1,0 +1,19 @@
+{
+  "verb": "見る",
+  "verbRomaji": "Miru",
+  "verbEnglish": "to see / to watch",
+  "particle": "を",
+  "particleEnglish": "object",
+  "conjugations": {
+    "polite_present_pos": { "ja": "見ます", "romaji": "mimasu", "en": "see / will see / watch / will watch" },
+    "polite_present_neg": { "ja": "見ません", "romaji": "mimasen", "en": "do not see / will not see" },
+    "polite_past_pos": { "ja": "見ました", "romaji": "mimashita", "en": "saw / watched" },
+    "polite_past_neg": { "ja": "見ませんでした", "romaji": "mimasen deshita", "en": "did not see / did not watch" },
+    "casual_present_pos": { "ja": "見る", "romaji": "miru", "en": "see / will see / watch / will watch" },
+    "casual_present_neg": { "ja": "見ない", "romaji": "minai", "en": "do not see / will not see" },
+    "casual_past_pos": { "ja": "見た", "romaji": "mita", "en": "saw / watched" },
+    "casual_past_neg": { "ja": "見なかった", "romaji": "minakatta", "en": "did not see / did not watch" },
+    "te_request": { "ja": "見てください", "romaji": "mite kudasai", "en": "please look / please watch" },
+    "te_continuous": { "ja": "見ています", "romaji": "mite imasu", "en": "am watching / am looking at" }
+  }
+}

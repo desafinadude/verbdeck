@@ -1,0 +1,109 @@
+verb,form,question_ja,question_romaji,question_en,hint_ja,hint_romaji,hint_en,answer_ja,answer_romaji,answer_en,strict_verb
+miru,polite_present_pos,"明日、何を見ますか？","ashita, nani o mimasu ka?","What will you watch tomorrow?",映画,eiga,movie,"映画を見ます。","eiga o mimasu.","I will watch a movie.",をみます
+miru,polite_present_pos,"今夜、何を見ますか？","kon'ya, nani o mimasu ka?","What will you watch tonight?",テレビ,terebi,TV,"テレビを見ます。","terebi o mimasu.","I will watch TV.",をみます
+miru,polite_present_pos,"週末、何を見ますか？","shumatsu, nani o mimasu ka?","What will you watch this weekend?",サッカー,sakka,soccer,"サッカーを見ます。","sakka o mimasu.","I will watch soccer.",をみます
+miru,polite_present_pos,"明日、何を見ますか？","ashita, nani o mimasu ka?","What will you see tomorrow?",花,hana,flowers,"花を見ます。","hana o mimasu.","I will see flowers.",をみます
+miru,polite_present_pos,"今夜、何を見ますか？","kon'ya, nani o mimasu ka?","What will you watch tonight?",ニュース,nyusu,news,"ニュースを見ます。","nyusu o mimasu.","I will watch the news.",をみます
+miru,polite_present_pos,"彼は明日何を見ますか？","kare wa ashita nani o mimasu ka?","What will he watch tomorrow?",野球,yakyu,baseball,"彼は野球を見ます。","kare wa yakyu o mimasu.","He will watch baseball.",をみます
+miru,polite_present_pos,"彼女は今夜何を見ますか？","kanojo wa kon'ya nani o mimasu ka?","What will she watch tonight?",ドラマ,dorama,drama,"彼女はドラマを見ます。","kanojo wa dorama o mimasu.","She will watch a drama.",をみます
+miru,polite_present_pos,"彼らは週末何を見ますか？","karera wa shumatsu nani o mimasu ka?","What will they watch this weekend?",映画,eiga,movie,"彼らは映画を見ます。","karera wa eiga o mimasu.","They will watch a movie.",をみます
+miru,polite_present_pos,"来年、何を見ますか？","rainen, nani o mimasu ka?","What will you see next year?",富士山,fujisan,Mt.Fuji,"富士山を見ます。","fujisan o mimasu.","I will see Mt. Fuji.",をみます
+miru,polite_present_pos,"今晩、何を見ますか？","konban, nani o mimasu ka?","What will you watch this evening?",音楽,ongaku,music,"音楽を見ます。","ongaku o mimasu.","I will watch music.",をみます
+miru,polite_present_neg,"今夜、映画を見ますか？","kon'ya, eiga o mimasu ka?","Will you watch a movie tonight?",いいえ,iie,no,"いいえ、映画を見ません。","iie, eiga o mimasen.","No, I will not watch a movie tonight.",をみません
+miru,polite_present_neg,"明日、テレビを見ますか？","ashita, terebi o mimasu ka?","Will you watch TV tomorrow?",いいえ,iie,no,"いいえ、テレビを見ません。","iie, terebi o mimasen.","No, I will not watch TV tomorrow.",をみません
+miru,polite_present_neg,"週末、サッカーを見ますか？","shumatsu, sakka o mimasu ka?","Will you watch soccer this weekend?",いいえ,iie,no,"いいえ、サッカーを見ません。","iie, sakka o mimasen.","No, I will not watch soccer this weekend.",をみません
+miru,polite_present_neg,"今晩、ニュースを見ますか？","konban, nyusu o mimasu ka?","Will you watch the news this evening?",いいえ,iie,no,"いいえ、ニュースを見ません。","iie, nyusu o mimasen.","No, I will not watch the news this evening.",をみません
+miru,polite_present_neg,"明日、花を見ますか？","ashita, hana o mimasu ka?","Will you see the flowers tomorrow?",いいえ,iie,no,"いいえ、花を見ません。","iie, hana o mimasen.","No, I will not see the flowers tomorrow.",をみません
+miru,polite_present_neg,"彼は今夜野球を見ますか？","kare wa kon'ya yakyu o mimasu ka?","Will he watch baseball tonight?",いいえ,iie,no,"いいえ、彼は野球を見ません。","iie, kare wa yakyu o mimasen.","No, he will not watch baseball tonight.",をみません
+miru,polite_present_neg,"彼女は明日映画を見ますか？","kanojo wa ashita eiga o mimasu ka?","Will she watch a movie tomorrow?",いいえ,iie,no,"いいえ、彼女は映画を見ません。","iie, kanojo wa eiga o mimasen.","No, she will not watch a movie tomorrow.",をみません
+miru,polite_present_neg,"彼らは週末テレビを見ますか？","karera wa shumatsu terebi o mimasu ka?","Will they watch TV this weekend?",いいえ,iie,no,"いいえ、彼らはテレビを見ません。","iie, karera wa terebi o mimasen.","No, they will not watch TV this weekend.",をみません
+miru,polite_present_neg,"今夜、映画を見ますか？","kon'ya, eiga o mimasu ka?","Are you going to watch a movie tonight?",いいえ,iie,no,"いいえ、見ません。","iie, mimasen.","No, I am not watching.",をみません
+miru,polite_present_neg,"明日、テレビを見ますか？","ashita, terebi o mimasu ka?","Will you watch TV tomorrow?",いいえ,iie,no,"いいえ、見ません。","iie, mimasen.","No, I will not watch.",をみません
+miru,polite_past_pos,"昨日、何を見ましたか？","kino, nani o mimashita ka?","What did you watch yesterday?",映画,eiga,movie,"映画を見ました。","eiga o mimashita.","I watched a movie.",をみました
+miru,polite_past_pos,"先週、何を見ましたか？","senshu, nani o mimashita ka?","What did you watch last week?",テレビ,terebi,TV,"テレビを見ました。","terebi o mimashita.","I watched TV.",をみました
+miru,polite_past_pos,"去年、何を見ましたか？","kyonen, nani o mimashita ka?","What did you see last year?",花火,hanabi,fireworks,"花火を見ました。","hanabi o mimashita.","I saw fireworks.",をみました
+miru,polite_past_pos,"今朝、何を見ましたか？","kesa, nani o mimashita ka?","What did you see this morning?",鳥,tori,bird,"鳥を見ました。","tori o mimashita.","I saw a bird.",をみました
+miru,polite_past_pos,"昨日、何を見ましたか？","kino, nani o mimashita ka?","What did you watch yesterday?",サッカー,sakka,soccer,"サッカーを見ました。","sakka o mimashita.","I watched soccer.",をみました
+miru,polite_past_pos,"先週、何を見ましたか？","senshu, nani o mimashita ka?","What did you watch last week?",ドラマ,dorama,drama,"ドラマを見ました。","dorama o mimashita.","I watched a drama.",をみました
+miru,polite_past_pos,"彼は昨日何を見ましたか？","kare wa kino nani o mimashita ka?","What did he watch yesterday?",野球,yakyu,baseball,"彼は野球を見ました。","kare wa yakyu o mimashita.","He watched baseball.",をみました
+miru,polite_past_pos,"彼女は先週何を見ましたか？","kanojo wa senshu nani o mimashita ka?","What did she watch last week?",映画,eiga,movie,"彼女は映画を見ました。","kanojo wa eiga o mimashita.","She watched a movie.",をみました
+miru,polite_past_pos,"彼らは去年何を見ましたか？","karera wa kyonen nani o mimashita ka?","What did they see last year?",富士山,fujisan,Mt.Fuji,"彼らは富士山を見ました。","karera wa fujisan o mimashita.","They saw Mt. Fuji.",をみました
+miru,polite_past_pos,"昨日、何を見ましたか？","kino, nani o mimashita ka?","What did you see yesterday?",桜,sakura,cherry blossoms,"桜を見ました。","sakura o mimashita.","I saw cherry blossoms.",をみました
+miru,polite_past_pos,"先週、何を見ましたか？","senshu, nani o mimashita ka?","What did you watch last week?",ニュース,nyusu,news,"ニュースを見ました。","nyusu o mimashita.","I watched the news.",をみました
+miru,polite_past_neg,"昨日、映画を見ましたか？","kino, eiga o mimashita ka?","Did you watch a movie yesterday?",いいえ,iie,no,"いいえ、映画を見ませんでした。","iie, eiga o mimasen deshita.","No, I did not watch a movie yesterday.",をみませんでした
+miru,polite_past_neg,"先週、テレビを見ましたか？","senshu, terebi o mimashita ka?","Did you watch TV last week?",いいえ,iie,no,"いいえ、テレビを見ませんでした。","iie, terebi o mimasen deshita.","No, I did not watch TV last week.",をみませんでした
+miru,polite_past_neg,"去年、花火を見ましたか？","kyonen, hanabi o mimashita ka?","Did you see fireworks last year?",いいえ,iie,no,"いいえ、花火を見ませんでした。","iie, hanabi o mimasen deshita.","No, I did not see fireworks last year.",をみませんでした
+miru,polite_past_neg,"今朝、鳥を見ましたか？","kesa, tori o mimashita ka?","Did you see a bird this morning?",いいえ,iie,no,"いいえ、鳥を見ませんでした。","iie, tori o mimasen deshita.","No, I did not see a bird this morning.",をみませんでした
+miru,polite_past_neg,"昨日、サッカーを見ましたか？","kino, sakka o mimashita ka?","Did you watch soccer yesterday?",いいえ,iie,no,"いいえ、サッカーを見ませんでした。","iie, sakka o mimasen deshita.","No, I did not watch soccer yesterday.",をみませんでした
+miru,polite_past_neg,"先週、ドラマを見ましたか？","senshu, dorama o mimashita ka?","Did you watch a drama last week?",いいえ,iie,no,"いいえ、ドラマを見ませんでした。","iie, dorama o mimasen deshita.","No, I did not watch a drama last week.",をみませんでした
+miru,polite_past_neg,"彼は昨日野球を見ましたか？","kare wa kino yakyu o mimashita ka?","Did he watch baseball yesterday?",いいえ,iie,no,"いいえ、彼は野球を見ませんでした。","iie, kare wa yakyu o mimasen deshita.","No, he did not watch baseball yesterday.",をみませんでした
+miru,polite_past_neg,"彼女は先週映画を見ましたか？","kanojo wa senshu eiga o mimashita ka?","Did she watch a movie last week?",いいえ,iie,no,"いいえ、彼女は映画を見ませんでした。","iie, kanojo wa eiga o mimasen deshita.","No, she did not watch a movie last week.",をみませんでした
+miru,polite_past_neg,"彼らは去年富士山を見ましたか？","karera wa kyonen fujisan o mimashita ka?","Did they see Mt. Fuji last year?",いいえ,iie,no,"いいえ、彼らは富士山を見ませんでした。","iie, karera wa fujisan o mimasen deshita.","No, they did not see Mt. Fuji last year.",をみませんでした
+miru,polite_past_neg,"昨日、映画を見ましたか？","kino, eiga o mimashita ka?","Did you watch a movie yesterday?",いいえ,iie,no,"いいえ、見ませんでした。","iie, mimasen deshita.","No, I did not watch.",をみませんでした
+miru,casual_present_pos,"明日、何を見る？","ashita, nani o miru?","What are you watching tomorrow?",映画,eiga,movie,"映画を見る。","eiga o miru.","I'm watching a movie.",をみる
+miru,casual_present_pos,"今夜、何を見る？","kon'ya, nani o miru?","What are you watching tonight?",テレビ,terebi,TV,"テレビを見る。","terebi o miru.","I'm watching TV.",をみる
+miru,casual_present_pos,"来週、何を見る？","raishu, nani o miru?","What are you watching next week?",ドラマ,dorama,drama,"ドラマを見る。","dorama o miru.","I'm watching a drama.",をみる
+miru,casual_present_pos,"週末、何を見る？","shumatsu, nani o miru?","What are you watching this weekend?",サッカー,sakka,soccer,"サッカーを見る。","sakka o miru.","I'm watching soccer.",をみる
+miru,casual_present_pos,"明日、何を見る？","ashita, nani o miru?","What are you seeing tomorrow?",花,hana,flowers,"花を見る。","hana o miru.","I'm seeing flowers.",をみる
+miru,casual_present_pos,"彼は明日何を見る？","kare wa ashita nani o miru?","What is he watching tomorrow?",野球,yakyu,baseball,"彼は野球を見る。","kare wa yakyu o miru.","He's watching baseball.",をみる
+miru,casual_present_pos,"彼女は今夜何を見る？","kanojo wa kon'ya nani o miru?","What is she watching tonight?",映画,eiga,movie,"彼女は映画を見る。","kanojo wa eiga o miru.","She's watching a movie.",をみる
+miru,casual_present_pos,"彼らは週末何を見る？","karera wa shumatsu nani o miru?","What are they watching this weekend?",テレビ,terebi,TV,"彼らはテレビを見る。","karera wa terebi o miru.","They're watching TV.",をみる
+miru,casual_present_pos,"今晩、何を見る？","konban, nani o miru?","What are you watching this evening?",ニュース,nyusu,news,"ニュースを見る。","nyusu o miru.","I'm watching the news.",をみる
+miru,casual_present_pos,"来年、何を見る？","rainen, nani o miru?","What will you see next year?",富士山,fujisan,Mt.Fuji,"富士山を見る。","fujisan o miru.","I'll see Mt. Fuji.",をみる
+miru,casual_present_neg,"今日、テレビを見る？","kyo, terebi o miru?","Are you watching TV today?",ううん,uun,no,"ううん、テレビを見ない。","uun, terebi o minai.","Nah, I'm not watching TV today.",をみない
+miru,casual_present_neg,"今夜、映画を見る？","kon'ya, eiga o miru?","Are you watching a movie tonight?",ううん,uun,no,"ううん、映画を見ない。","uun, eiga o minai.","Nah, I'm not watching a movie tonight.",をみない
+miru,casual_present_neg,"明日、サッカーを見る？","ashita, sakka o miru?","Are you watching soccer tomorrow?",ううん,uun,no,"ううん、サッカーを見ない。","uun, sakka o minai.","Nah, I'm not watching soccer tomorrow.",をみない
+miru,casual_present_neg,"週末、花を見る？","shumatsu, hana o miru?","Are you seeing flowers this weekend?",ううん,uun,no,"ううん、花を見ない。","uun, hana o minai.","Nah, I'm not seeing flowers this weekend.",をみない
+miru,casual_present_neg,"今夜、ニュースを見る？","kon'ya, nyusu o miru?","Are you watching the news tonight?",ううん,uun,no,"ううん、ニュースを見ない。","uun, nyusu o minai.","Nah, I'm not watching the news tonight.",をみない
+miru,casual_present_neg,"彼は今日野球を見る？","kare wa kyo yakyu o miru?","Is he watching baseball today?",ううん,uun,no,"ううん、彼は野球を見ない。","uun, kare wa yakyu o minai.","Nah, he's not watching baseball today.",をみない
+miru,casual_present_neg,"彼女は今夜映画を見る？","kanojo wa kon'ya eiga o miru?","Is she watching a movie tonight?",ううん,uun,no,"ううん、彼女は映画を見ない。","uun, kanojo wa eiga o minai.","Nah, she's not watching a movie tonight.",をみない
+miru,casual_present_neg,"彼らは週末テレビを見る？","karera wa shumatsu terebi o miru?","Are they watching TV this weekend?",ううん,uun,no,"ううん、彼らはテレビを見ない。","uun, karera wa terebi o minai.","Nah, they're not watching TV this weekend.",をみない
+miru,casual_present_neg,"今日、テレビを見る？","kyo, terebi o miru?","Are you watching TV today?",ううん,uun,no,"ううん、見ない。","uun, minai.","Nah, I'm not watching.",をみない
+miru,casual_present_neg,"今夜、映画を見る？","kon'ya, eiga o miru?","Are you watching a movie tonight?",ううん,uun,no,"ううん、見ない。","uun, minai.","Nah, not watching.",をみない
+miru,casual_past_pos,"昨日、何を見た？","kino, nani o mita?","What did you watch yesterday?",映画,eiga,movie,"映画を見た。","eiga o mita.","I watched a movie.",をみた
+miru,casual_past_pos,"先週、何を見た？","senshu, nani o mita?","What did you watch last week?",テレビ,terebi,TV,"テレビを見た。","terebi o mita.","I watched TV.",をみた
+miru,casual_past_pos,"昨日、何を見た？","kino, nani o mita?","What did you see yesterday?",花,hana,flowers,"花を見た。","hana o mita.","I saw flowers.",をみた
+miru,casual_past_pos,"今朝、何を見た？","kesa, nani o mita?","What did you see this morning?",鳥,tori,bird,"鳥を見た。","tori o mita.","I saw a bird.",をみた
+miru,casual_past_pos,"去年、何を見た？","kyonen, nani o mita?","What did you see last year?",花火,hanabi,fireworks,"花火を見た。","hanabi o mita.","I saw fireworks.",をみた
+miru,casual_past_pos,"昨日、何を見た？","kino, nani o mita?","What did you watch yesterday?",サッカー,sakka,soccer,"サッカーを見た。","sakka o mita.","I watched soccer.",をみた
+miru,casual_past_pos,"彼は昨日何を見た？","kare wa kino nani o mita?","What did he watch yesterday?",野球,yakyu,baseball,"彼は野球を見た。","kare wa yakyu o mita.","He watched baseball.",をみた
+miru,casual_past_pos,"彼女は先週何を見た？","kanojo wa senshu nani o mita?","What did she watch last week?",ドラマ,dorama,drama,"彼女はドラマを見た。","kanojo wa dorama o mita.","She watched a drama.",をみた
+miru,casual_past_pos,"彼らは去年何を見た？","karera wa kyonen nani o mita?","What did they see last year?",富士山,fujisan,Mt.Fuji,"彼らは富士山を見た。","karera wa fujisan o mita.","They saw Mt. Fuji.",をみた
+miru,casual_past_pos,"昨日、何を見た？","kino, nani o mita?","What did you see yesterday?",桜,sakura,cherry blossoms,"桜を見た。","sakura o mita.","I saw cherry blossoms.",をみた
+miru,casual_past_pos,"先週、何を見た？","senshu, nani o mita?","What did you watch last week?",ニュース,nyusu,news,"ニュースを見た。","nyusu o mita.","I watched the news.",をみた
+miru,casual_past_neg,"昨日、映画を見た？","kino, eiga o mita?","Did you watch a movie yesterday?",ううん,uun,no,"ううん、映画を見なかった。","uun, eiga o minakatta.","Nah, I didn't watch a movie yesterday.",をみなかった
+miru,casual_past_neg,"先週、テレビを見た？","senshu, terebi o mita?","Did you watch TV last week?",ううん,uun,no,"ううん、テレビを見なかった。","uun, terebi o minakatta.","Nah, I didn't watch TV last week.",をみなかった
+miru,casual_past_neg,"昨日、サッカーを見た？","kino, sakka o mita?","Did you watch soccer yesterday?",ううん,uun,no,"ううん、サッカーを見なかった。","uun, sakka o minakatta.","Nah, I didn't watch soccer yesterday.",をみなかった
+miru,casual_past_neg,"今朝、鳥を見た？","kesa, tori o mita?","Did you see a bird this morning?",ううん,uun,no,"ううん、鳥を見なかった。","uun, tori o minakatta.","Nah, I didn't see a bird this morning.",をみなかった
+miru,casual_past_neg,"去年、花火を見た？","kyonen, hanabi o mita?","Did you see fireworks last year?",ううん,uun,no,"ううん、花火を見なかった。","uun, hanabi o minakatta.","Nah, I didn't see fireworks last year.",をみなかった
+miru,casual_past_neg,"彼は昨日野球を見た？","kare wa kino yakyu o mita?","Did he watch baseball yesterday?",ううん,uun,no,"ううん、彼は野球を見なかった。","uun, kare wa yakyu o minakatta.","Nah, he didn't watch baseball yesterday.",をみなかった
+miru,casual_past_neg,"彼女は先週ドラマを見た？","kanojo wa senshu dorama o mita?","Did she watch a drama last week?",ううん,uun,no,"ううん、彼女はドラマを見なかった。","uun, kanojo wa dorama o minakatta.","Nah, she didn't watch a drama last week.",をみなかった
+miru,casual_past_neg,"彼らは去年富士山を見た？","karera wa kyonen fujisan o mita?","Did they see Mt. Fuji last year?",ううん,uun,no,"ううん、彼らは富士山を見なかった。","uun, karera wa fujisan o minakatta.","Nah, they didn't see Mt. Fuji last year.",をみなかった
+miru,casual_past_neg,"昨日、映画を見た？","kino, eiga o mita?","Did you watch a movie yesterday?",ううん,uun,no,"ううん、見なかった。","uun, minakatta.","Nah, I didn't watch.",をみなかった
+miru,te_request,"テレビが壊れました。","terebi ga kowaremashita.","The TV is broken.",新しい,atarashii,new,"新しいテレビを見てください。","atarashii terebi o mite kudasai.","Please look at the new TV.",をみてください
+miru,te_request,"これ、何ですか？","kore, nan desu ka?","What is this?",見て,mite,look,"見てください。","mite kudasai.","Please look.",をみてください
+miru,te_request,"この花、きれいですね。","kono hana, kirei desu ne.","These flowers are beautiful, aren't they?",見て,mite,look,"見てください。","mite kudasai.","Please look.",をみてください
+miru,te_request,"写真を撮りました。","shashin o torimashita.","I took a photo.",見て,mite,look,"写真を見てください。","shashin o mite kudasai.","Please look at the photo.",をみてください
+miru,te_request,"この映画、面白いですよ。","kono eiga, omoshiroi desu yo.","This movie is interesting.",見て,mite,watch,"映画を見てください。","eiga o mite kudasai.","Please watch the movie.",をみてください
+miru,te_request,"部屋をきれいにしました。","heya o kirei ni shimashita.","I cleaned the room.",見て,mite,look,"見てください。","mite kudasai.","Please look.",をみてください
+miru,te_continuous,"今、何を見ていますか？","ima, nani o mite imasu ka?","What are you watching now?",テレビ,terebi,TV,"テレビを見ています。","terebi o mite imasu.","I am watching TV.",をみています
+miru,te_continuous,"今、何を見ていますか？","ima, nani o mite imasu ka?","What are you watching now?",映画,eiga,movie,"映画を見ています。","eiga o mite imasu.","I am watching a movie.",をみています
+miru,te_continuous,"今、何を見ていますか？","ima, nani o mite imasu ka?","What are you looking at now?",花,hana,flowers,"花を見ています。","hana o mite imasu.","I am looking at flowers.",をみています
+miru,te_continuous,"今、何を見ていますか？","ima, nani o mite imasu ka?","What are you watching now?",ニュース,nyusu,news,"ニュースを見ています。","nyusu o mite imasu.","I am watching the news.",をみています
+miru,te_continuous,"今、何を見ていますか？","ima, nani o mite imasu ka?","What are you looking at now?",写真,shashin,photo,"写真を見ています。","shashin o mite imasu.","I am looking at a photo.",をみています
+miru,te_continuous,"彼は今何を見ていますか？","kare wa ima nani o mite imasu ka?","What is he watching now?",サッカー,sakka,soccer,"彼はサッカーを見ています。","kare wa sakka o mite imasu.","He is watching soccer.",をみています
+miru,te_continuous,"彼女は今何を見ていますか？","kanojo wa ima nani o mite imasu ka?","What is she watching now?",ドラマ,dorama,drama,"彼女はドラマを見ています。","kanojo wa dorama o mite imasu.","She is watching a drama.",をみています
+miru,te_continuous,"彼らは今何を見ていますか？","karera wa ima nani o mite imasu ka?","What are they watching now?",映画,eiga,movie,"彼らは映画を見ています。","karera wa eiga o mite imasu.","They are watching a movie.",をみています
+miru,te_continuous,"今、何を見ていますか？","ima, nani o mite imasu ka?","What are you looking at right now?",空,sora,sky,"空を見ています。","sora o mite imasu.","I am looking at the sky.",をみています
+miru,te_continuous,"今、何を見ていますか？","ima, nani o mite imasu ka?","What are you watching now?",音楽,ongaku,music,"音楽を見ています。","ongaku o mite imasu.","I am watching music.",をみています
+miru,polite_present_neg,"今夜、あなたたちは映画を見ますか？","kon'ya, anatatachi wa eiga o mimasu ka?","Are you (plural) watching a movie tonight?",いいえ,iie,no,"いいえ、私たちは映画を見ません。","iie, watashitachi wa eiga o mimasen.","No, we are not watching a movie tonight.",をみません
+miru,polite_present_neg,"週末、あなたたちはテレビを見ますか？","shumatsu, anatatachi wa terebi o mimasu ka?","Are you (plural) watching TV this weekend?",いいえ,iie,no,"いいえ、私たちはテレビを見ません。","iie, watashitachi wa terebi o mimasen.","No, we are not watching TV this weekend.",をみません
+miru,polite_present_neg,"今夜、あなたたちは映画を見ますか？","kon'ya, anatatachi wa eiga o mimasu ka?","Are you (plural) watching a movie tonight?",いいえ,iie,no,"いいえ、私たちは見ません。","iie, watashitachi wa mimasen.","No, we are not watching.",をみません
+miru,casual_present_neg,"今夜、あなたたちは映画を見る？","kon'ya, anatatachi wa eiga o miru?","Are you (plural) watching a movie tonight?",ううん,uun,no,"ううん、私たちは映画を見ない。","uun, watashitachi wa eiga o minai.","Nah, we are not watching a movie tonight.",をみない
+miru,casual_present_neg,"週末、あなたたちは花を見る？","shumatsu, anatatachi wa hana o miru?","Are you (plural) seeing flowers this weekend?",ううん,uun,no,"ううん、私たちは花を見ない。","uun, watashitachi wa hana o minai.","Nah, we are not seeing flowers this weekend.",をみない
+miru,casual_present_neg,"今夜、あなたたちは映画を見る？","kon'ya, anatatachi wa eiga o miru?","Are you (plural) watching a movie tonight?",ううん,uun,no,"ううん、私たちは見ない。","uun, watashitachi wa minai.","Nah, we are not watching.",をみない
+miru,polite_past_neg,"昨日、あなたたちは映画を見ましたか？","kino, anatatachi wa eiga o mimashita ka?","Did you (plural) watch a movie yesterday?",いいえ,iie,no,"いいえ、私たちは映画を見ませんでした。","iie, watashitachi wa eiga o mimasen deshita.","No, we did not watch a movie yesterday.",をみませんでした
+miru,polite_past_neg,"先週、あなたたちはテレビを見ましたか？","senshu, anatatachi wa terebi o mimashita ka?","Did you (plural) watch TV last week?",いいえ,iie,no,"いいえ、私たちはテレビを見ませんでした。","iie, watashitachi wa terebi o mimasen deshita.","No, we did not watch TV last week.",をみませんでした
+miru,polite_past_neg,"昨日、あなたたちは映画を見ましたか？","kino, anatatachi wa eiga o mimashita ka?","Did you (plural) watch a movie yesterday?",いいえ,iie,no,"いいえ、私たちは見ませんでした。","iie, watashitachi wa mimasen deshita.","No, we did not watch.",をみませんでした
+miru,casual_past_neg,"昨日、あなたたちは映画を見た？","kino, anatatachi wa eiga o mita?","Did you (plural) watch a movie yesterday?",ううん,uun,no,"ううん、私たちは映画を見なかった。","uun, watashitachi wa eiga o minakatta.","Nah, we didn't watch a movie yesterday.",をみなかった
+miru,casual_past_neg,"昨日、あなたたちは花を見た？","kino, anatatachi wa

@@ -1,5 +1,7 @@
 import ikuCsv from "@/data/questions/iku.csv";
 import ikuMeta from "@/data/verbs/iku.json";
+import miruCsv from "@/data/questions/miru.csv";
+import miruMeta from "@/data/verbs/miru.json";
 
 /* ------------------------------------------------------------------ *
  * Data types
@@ -56,6 +58,7 @@ export interface Question {
 
 export const VERBS: Record<string, VerbMeta> = {
   iku: ikuMeta as VerbMeta,
+  miru: miruMeta as VerbMeta,
 };
 
 /* ------------------------------------------------------------------ *
@@ -227,6 +230,7 @@ function pick<T>(arr: T[], rng: () => number): T {
 
 const BANKS: Record<string, Record<string, CsvRow[]>> = {
   iku: groupByForm(loadBank(ikuCsv)),
+  miru: groupByForm(loadBank(miruCsv)),
 };
 
 function groupByForm(rows: CsvRow[]): Record<string, CsvRow[]> {
