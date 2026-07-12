@@ -70,6 +70,121 @@ button:disabled {
   background: #f5f5f5;
 }
 
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------- Vocab modal ---------- */
+.vocab-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  /* Leave the bottom bar (sticky, ~90px) visible/interactive. */
+  bottom: calc(90px + env(safe-area-inset-bottom));
+}
+
+.vocab-modal {
+  background: #fff;
+  border-radius: 14px 14px 0 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 480px;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.vocab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+.vocab-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.vocab-close {
+  border: none;
+  background: transparent;
+  color: #666;
+  font-size: 18px;
+  padding: 6px;
+  border-radius: 6px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vocab-close:hover {
+  background: #f0f0f0;
+  color: #1a1a1a;
+}
+
+.vocab-body {
+  padding: 8px 16px 20px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.vocab-accordion {
+  border-bottom: 1px solid #f0f0f0;
+}
+.vocab-accordion:last-child {
+  border-bottom: none;
+}
+
+.vocab-accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 4px;
+  border: none;
+  background: transparent;
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  border-radius: 0;
+}
+
+.vocab-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+}
+.vocab-table td {
+  padding: 9px 4px;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 15px;
+  vertical-align: middle;
+}
+.vocab-table tr:last-child td {
+  border-bottom: none;
+}
+.vocab-ja {
+  font-size: 18px;
+  font-weight: 600;
+  width: 45%;
+}
+.vocab-reveal {
+  color: #666;
+  font-size: 14px;
+  min-height: 1.4em;
+}
+
 /* ---------- Bottom action bar (phone-style) ---------- */
 .bottombar {
   position: sticky;

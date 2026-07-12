@@ -1,0 +1,41 @@
+category,ja,romaji,en
+time,今日,kyo,Today
+time,明日,ashita,Tomorrow
+time,昨日,kino,Yesterday
+time,今夜,kon'ya,Tonight
+time,今晩,konban,This evening
+time,今朝,kesa,This morning
+time,今,ima,Now
+time,来週,raishu,Next week
+time,先週,senshu,Last week
+time,今週,konshu,This week
+time,来月,raigetsu,Next month
+time,先月,sengetsu,Last month
+time,今月,kongetsu,This month
+time,来年,rainen,Next year
+time,去年,kyonen,Last year
+time,今年,kotoshi,This year
+time,週末,shumatsu,Weekend
+time,毎日,mainichi,Every day
+time,毎朝,maiasa,Every morning
+time,毎晚,maiban,Every night
+places,学校,gakko,School
+places,会社,kaisha,Office
+places,家,ie,Home
+places,駅,eki,Station
+places,病院,byoin,Hospital
+places,図書館,toshokan,Library
+places,公園,koen,Park
+places,店,mise,Shop
+places,レストラン,resutoran,Restaurant
+places,海,umi,Beach
+places,山,yama,Mountains
+places,京都,kyoto,Kyoto
+places,東京,tokyo,Tokyo
+places,大阪,osaka,Osaka
+places,日本,nihon,Japan
+places,映画館,eigakan,Movie theater
+places,神社,jinja,Shrine
+places,お寺,otera,Temple
+places,空港,kuko,Airport
+places,スーパー,supa,Supermarket

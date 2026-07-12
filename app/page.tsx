@@ -22,6 +22,7 @@ import {
   stopSpeaking,
   type Recognizer,
 } from "@/lib/audio";
+import { VOCAB_SETS } from "@/lib/vocab";
 
 type Phase = "intro" | "ask" | "listening" | "evaluating" | "complete";
 
@@ -43,6 +44,8 @@ export default function Page() {
   const [statusTone, setStatusTone] = useState<"" | "ok" | "no">("");
   const [transcript, setTranscript] = useState("");
   const [seed, setSeed] = useState(0);
+  const [vocabOpen, setVocabOpen] = useState(false);
+  const [openSet, setOpenSet] = useState<string | null>("time");
 
   const recognizerRef = useRef<Recognizer | null>(null);
   const [supported, setSupported] = useState(false);
@@ -279,16 +282,26 @@ export default function Page() {
             <Icon icon="ph:caret-left-bold" /> Verbs
           </button>
         )}
-        {phase !== "intro" && (
+        <div className="topbar-right">
+          {phase !== "intro" && (
+            <button
+              type="button"
+              className="topbar-btn"
+              onClick={newSession}
+              aria-label="New questions"
+            >
+              <Icon icon="ph:arrows-clockwise-bold" />
+            </button>
+          )}
           <button
             type="button"
             className="topbar-btn"
-            onClick={newSession}
-            aria-label="New questions"
+            onClick={() => setVocabOpen(true)}
+            aria-label="Vocabulary"
           >
-            <Icon icon="ph:arrows-clockwise-bold" />
+            <Icon icon="ph:book-open-bold" />
           </button>
-        )}
+        </div>
       </div>
 
       <main className="shell">
@@ -507,10 +520,10 @@ export default function Page() {
                 ? "Evaluating"
                 : "Hold to speak"
             }
-            disabled={!supported || phase === "evaluating"}
+            disabled={!supported || phase === "evaluating" || vocabOpen}
             onPointerDown={(e) => {
               e.preventDefault();
-              if (phase === "ask") startMic();
+              if (phase === "ask" && !vocabOpen) startMic();
             }}
             onPointerUp={() => {
               if (phase === "listening") stopMic();
@@ -532,13 +545,68 @@ export default function Page() {
             type="button"
             className="bottombar-btn"
             onClick={dontKnow}
-            disabled={phase === "listening" || phase === "evaluating"}
+            disabled={phase === "listening" || phase === "evaluating" || vocabOpen}
             aria-label="Don't know"
           >
             ??
           </button>
         </div>
       </nav>
+
+      {vocabOpen && (
+        <div className="vocab-overlay" onClick={() => setVocabOpen(false)}>
+          <div className="vocab-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="vocab-header">
+              <h2>Vocabulary</h2>
+              <button
+                type="button"
+                className="vocab-close"
+                onClick={() => setVocabOpen(false)}
+                aria-label="Close vocabulary"
+              >
+                <Icon icon="ph:x-bold" />
+              </button>
+            </div>
+            <div className="vocab-body">
+              {VOCAB_SETS.map((set) => (
+                <div key={set.id} className="vocab-accordion">
+                  <button
+                    type="button"
+                    className="vocab-accordion-header"
+                    onClick={() =>
+                      setOpenSet(openSet === set.id ? null : set.id)
+                    }
+                    aria-expanded={openSet === set.id}
+                  >
+                    <span>{set.label}</span>
+                    <Icon
+                      icon={
+                        openSet === set.id
+                          ? "ph:caret-up-bold"
+                          : "ph:caret-down-bold"
+                      }
+                    />
+                  </button>
+                  {openSet === set.id && (
+                    <table className="vocab-table">
+                      <tbody>
+                        {set.words.map((w, i) => (
+                          <tr key={i}>
+                            <td className="vocab-ja">{w.ja}</td>
+                            <td className="vocab-reveal">
+                              {reveal(w.romaji, w.en)}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
