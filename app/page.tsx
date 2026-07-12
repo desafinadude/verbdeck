@@ -227,11 +227,13 @@ export default function Page() {
     recognizerRef.current?.stop();
     recognizerRef.current = null;
     setProgress(Array(TOTAL).fill(false));
-    setIndex(0);
+    // Keep the current index so the user stays on the same step
+    // while the questions regenerate with new content.
     setStatus("");
     setStatusTone("");
     setTranscript("");
     setShowAnswer(false);
+    setPhase("ask");
     setSeed(Date.now());
   }, []);
 
