@@ -1,0 +1,95 @@
+verb,form,question_ja,question_romaji,question_en,hint_ja,hint_romaji,hint_en,answer_ja,answer_romaji,answer_en,strict_verb
+taberu,polite_present_pos,"明日、何を食べますか？","ashita, nani o tabemasu ka?","What will you eat tomorrow?",寿司,sushi,sushi,"寿司を食べます。","sushi o tabemasu.","I will eat sushi.",をたべます
+taberu,polite_present_pos,"今夜、何を食べますか？","kon'ya, nani o tabemasu ka?","What will you eat tonight?",ラーメン,ramen,ramen,"ラーメンを食べます。","ramen o tabemasu.","I will eat ramen.",をたべます
+taberu,polite_present_pos,"今晩、何を食べますか？","konban, nani o tabemasu ka?","What will you eat this evening?",ピザ,piza,pizza,"ピザを食べます。","piza o tabemasu.","I will eat pizza.",をたべます
+taberu,polite_present_pos,"週末、何を食べますか？","shumatsu, nani o tabemasu ka?","What will you eat this weekend?",肉,niku,meat,"肉を食べます。","niku o tabemasu.","I will eat meat.",をたべます
+taberu,polite_present_pos,"朝、何を食べますか？","asa, nani o tabemasu ka?","What do you eat in the morning?",パン,pan,bread,"パンを食べます。","pan o tabemasu.","I eat bread.",をたべます
+taberu,polite_present_pos,"彼は明日何を食べますか？","kare wa ashita nani o tabemasu ka?","What will he eat tomorrow?",寿司,sushi,sushi,"彼は寿司を食べます。","kare wa sushi o tabemasu.","He will eat sushi.",をたべます
+taberu,polite_present_pos,"彼女は今夜何を食べますか？","kanojo wa kon'ya nani o tabemasu ka?","What will she eat tonight?",カレー,kare,curry,"彼女はカレーを食べます。","kanojo wa kare o tabemasu.","She will eat curry.",をたべます
+taberu,polite_present_pos,"彼らは週末何を食べますか？","karera wa shumatsu nani o tabemasu ka?","What will they eat this weekend?",焼肉,yakiniku,barbecue,"彼らは焼肉を食べます。","karera wa yakiniku o tabemasu.","They will eat barbecue.",をたべます
+taberu,polite_present_pos,"来年、何を食べますか？","rainen, nani o tabemasu ka?","What will you eat next year?",フランス料理,furansu ryori,French food,"フランス料理を食べます。","furansu ryori o tabemasu.","I will eat French food.",をたべます
+taberu,polite_present_pos,"昼、何を食べますか？","hiru, nani o tabemasu ka?","What will you eat for lunch?",お弁当,obento,bento,"お弁当を食べます。","obento o tabemasu.","I will eat a bento.",をたべます
+taberu,polite_present_neg,"今夜、寿司を食べますか？","kon'ya, sushi o tabemasu ka?","Will you eat sushi tonight?",いいえ,iie,no,"いいえ、寿司を食べません。","iie, sushi o tabemasen.","No, I will not eat sushi tonight.",をたべません
+taberu,polite_present_neg,"明日、ラーメンを食べますか？","ashita, ramen o tabemasu ka?","Will you eat ramen tomorrow?",いいえ,iie,no,"いいえ、ラーメンを食べません。","iie, ramen o tabemasen.","No, I will not eat ramen tomorrow.",をたべません
+taberu,polite_present_neg,"今晩、ピザを食べますか？","konban, piza o tabemasu ka?","Will you eat pizza this evening?",いいえ,iie,no,"いいえ、ピザを食べません。","iie, piza o tabemasen.","No, I will not eat pizza this evening.",をたべません
+taberu,polite_present_neg,"週末、肉を食べますか？","shumatsu, niku o tabemasu ka?","Will you eat meat this weekend?",いいえ,iie,no,"いいえ、肉を食べません。","iie, niku o tabemasen.","No, I will not eat meat this weekend.",をたべません
+taberu,polite_present_neg,"朝、パンを食べますか？","asa, pan o tabemasu ka?","Do you eat bread in the morning?",いいえ,iie,no,"いいえ、パンを食べません。","iie, pan o tabemasen.","No, I do not eat bread in the morning.",をたべません
+taberu,polite_present_neg,"彼は今夜カレーを食べますか？","kare wa kon'ya kare o tabemasu ka?","Will he eat curry tonight?",いいえ,iie,no,"いいえ、彼はカレーを食べません。","iie, kare wa kare o tabemasen.","No, he will not eat curry tonight.",をたべません
+taberu,polite_present_neg,"彼女は明日寿司を食べますか？","kanojo wa ashita sushi o tabemasu ka?","Will she eat sushi tomorrow?",いいえ,iie,no,"いいえ、彼女は寿司を食べません。","iie, kanojo wa sushi o tabemasen.","No, she will not eat sushi tomorrow.",をたべません
+taberu,polite_present_neg,"彼らは週末焼肉を食べますか？","karera wa shumatsu yakiniku o tabemasu ka?","Will they eat barbecue this weekend?",いいえ,iie,no,"いいえ、彼らは焼肉を食べません。","iie, karera wa yakiniku o tabemasen.","No, they will not eat barbecue this weekend.",をたべません
+taberu,polite_present_neg,"今夜、寿司を食べますか？","kon'ya, sushi o tabemasu ka?","Are you going to eat sushi tonight?",いいえ,iie,no,"いいえ、食べません。","iie, tabemasen.","No, I am not eating.",をたべません
+taberu,polite_present_neg,"明日、ラーメンを食べますか？","ashita, ramen o tabemasu ka?","Will you eat ramen tomorrow?",いいえ,iie,no,"いいえ、食べません。","iie, tabemasen.","No, I will not eat.",をたべません
+taberu,polite_past_pos,"昨日、何を食べましたか？","kino, nani o tabemashita ka?","What did you eat yesterday?",寿司,sushi,sushi,"寿司を食べました。","sushi o tabemashita.","I ate sushi.",をたべました
+taberu,polite_past_pos,"先週、何を食べましたか？","senshu, nani o tabemashita ka?","What did you eat last week?",ラーメン,ramen,ramen,"ラーメンを食べました。","ramen o tabemashita.","I ate ramen.",をたべました
+taberu,polite_past_pos,"今朝、何を食べましたか？","kesa, nani o tabemashita ka?","What did you eat this morning?",パン,pan,bread,"パンを食べました。","pan o tabemashita.","I ate bread.",をたべました
+taberu,polite_past_pos,"昨日、何を食べましたか？","kino, nani o tabemashita ka?","What did you eat yesterday?",カレー,kare,curry,"カレーを食べました。","kare o tabemashita.","I ate curry.",をたべました
+taberu,polite_past_pos,"先週、何を食べましたか？","senshu, nani o tabemashita ka?","What did you eat last week?",ピザ,piza,pizza,"ピザを食べました。","piza o tabemashita.","I ate pizza.",をたべました
+taberu,polite_past_pos,"彼は昨日何を食べましたか？","kare wa kino nani o tabemashita ka?","What did he eat yesterday?",肉,niku,meat,"彼は肉を食べました。","kare wa niku o tabemashita.","He ate meat.",をたべました
+taberu,polite_past_pos,"彼女は先週何を食べましたか？","kanojo wa senshu nani o tabemashita ka?","What did she eat last week?",ケーキ,ke-ki,cake,"彼女はケーキを食べました。","kanojo wa ke-ki o tabemashita.","She ate cake.",をたべました
+taberu,polite_past_pos,"彼らは今朝何を食べましたか？","karera wa kesa nani o tabemashita ka?","What did they eat this morning?",お弁当,obento,bento,"彼らはお弁当を食べました。","karera wa obento o tabemashita.","They ate a bento.",をたべました
+taberu,polite_past_pos,"昨日、何を食べましたか？","kino, nani o tabemashita ka?","What did you eat yesterday?",野菜,yasai,vegetables,"野菜を食べました。","yasai o tabemashita.","I ate vegetables.",をたべました
+taberu,polite_past_pos,"先週、何を食べましたか？","senshu, nani o tabemashita ka?","What did you eat last week?",魚,sakana,fish,"魚を食べました。","sakana o tabemashita.","I ate fish.",をたべました
+taberu,polite_past_neg,"昨日、寿司を食べましたか？","kino, sushi o tabemashita ka?","Did you eat sushi yesterday?",いいえ,iie,no,"いいえ、寿司を食べませんでした。","iie, sushi o tabemasen deshita.","No, I did not eat sushi yesterday.",をたべませんでした
+taberu,polite_past_neg,"先週、ラーメンを食べましたか？","senshu, ramen o tabemashita ka?","Did you eat ramen last week?",いいえ,iie,no,"いいえ、ラーメンを食べませんでした。","iie, ramen o tabemasen deshita.","No, I did not eat ramen last week.",をたべませんでした
+taberu,polite_past_neg,"今朝、パンを食べましたか？","kesa, pan o tabemashita ka?","Did you eat bread this morning?",いいえ,iie,no,"いいえ、パンを食べませんでした。","iie, pan o tabemasen deshita.","No, I did not eat bread this morning.",をたべませんでした
+taberu,polite_past_neg,"昨日、カレーを食べましたか？","kino, kare o tabemashita ka?","Did you eat curry yesterday?",いいえ,iie,no,"いいえ、カレーを食べませんでした。","iie, kare o tabemasen deshita.","No, I did not eat curry yesterday.",をたべませんでした
+taberu,polite_past_neg,"先週、肉を食べましたか？","senshu, niku o tabemashita ka?","Did you eat meat last week?",いいえ,iie,no,"いいえ、肉を食べませんでした。","iie, niku o tabemasen deshita.","No, I did not eat meat last week.",をたべませんでした
+taberu,polite_past_neg,"彼は昨日ケーキを食べましたか？","kare wa kino ke-ki o tabemashita ka?","Did he eat cake yesterday?",いいえ,iie,no,"いいえ、彼はケーキを食べませんでした。","iie, kare wa ke-ki o tabemasen deshita.","No, he did not eat cake yesterday.",をたべませんでした
+taberu,polite_past_neg,"彼女は先週寿司を食べましたか？","kanojo wa senshu sushi o tabemashita ka?","Did she eat sushi last week?",いいえ,iie,no,"いいえ、彼女は寿司を食べませんでした。","iie, kanojo wa sushi o tabemasen deshita.","No, she did not eat sushi last week.",をたべませんでした
+taberu,polite_past_neg,"彼らは今朝お弁当を食べましたか？","karera wa kesa obento o tabemashita ka?","Did they eat a bento this morning?",いいえ,iie,no,"いいえ、彼らはお弁当を食べませんでした。","iie, karera wa obento o tabemasen deshita.","No, they did not eat a bento this morning.",をたべませんでした
+taberu,polite_past_neg,"昨日、寿司を食べましたか？","kino, sushi o tabemashita ka?","Did you eat sushi yesterday?",いいえ,iie,no,"いいえ、食べませんでした。","iie, tabemasen deshita.","No, I did not eat.",をたべませんでした
+taberu,casual_present_pos,"明日、何を食べる？","ashita, nani o taberu?","What are you eating tomorrow?",寿司,sushi,sushi,"寿司を食べる。","sushi o taberu.","I'm eating sushi.",をたべる
+taberu,casual_present_pos,"今夜、何を食べる？","kon'ya, nani o taberu?","What are you eating tonight?",ラーメン,ramen,ramen,"ラーメンを食べる。","ramen o taberu.","I'm eating ramen.",をたべる
+taberu,casual_present_pos,"週末、何を食べる？","shumatsu, nani o taberu?","What are you eating this weekend?",ピザ,piza,pizza,"ピザを食べる。","piza o taberu.","I'm eating pizza.",をたべる
+taberu,casual_present_pos,"今晩、何を食べる？","konban, nani o taberu?","What are you eating this evening?",カレー,kare,curry,"カレーを食べる。","kare o taberu.","I'm eating curry.",をたべる
+taberu,casual_present_pos,"朝、何を食べる？","asa, nani o taberu?","What do you eat in the morning?",パン,pan,bread,"パンを食べる。","pan o taberu.","I eat bread.",をたべる
+taberu,casual_present_pos,"彼は明日何を食べる？","kare wa ashita nani o taberu?","What is he eating tomorrow?",肉,niku,meat,"彼は肉を食べる。","kare wa niku o taberu.","He's eating meat.",をたべる
+taberu,casual_present_pos,"彼女は今夜何を食べる？","kanojo wa kon'ya nani o taberu?","What is she eating tonight?",ケーキ,ke-ki,cake,"彼女はケーキを食べる。","kanojo wa ke-ki o taberu.","She's eating cake.",をたべる
+taberu,casual_present_pos,"彼らは週末何を食べる？","karera wa shumatsu nani o taberu?","What are they eating this weekend?",焼肉,yakiniku,barbecue,"彼らは焼肉を食べる。","karera wa yakiniku o taberu.","They're eating barbecue.",をたべる
+taberu,casual_present_pos,"昼、何を食べる？","hiru, nani o taberu?","What are you eating for lunch?",お弁当,obento,bento,"お弁当を食べる。","obento o taberu.","I'm eating a bento.",をたべる
+taberu,casual_present_pos,"来年、何を食べる？","rainen, nani o taberu?","What will you eat next year?",フランス料理,furansu ryori,French food,"フランス料理を食べる。","furansu ryori o taberu.","I'll eat French food.",をたべる
+taberu,casual_present_neg,"今日、寿司を食べる？","kyo, sushi o taberu?","Are you eating sushi today?",ううん,uun,no,"ううん、寿司を食べない。","uun, sushi o tabenai.","Nah, I'm not eating sushi today.",をたべない
+taberu,casual_present_neg,"今夜、ラーメンを食べる？","kon'ya, ramen o taberu?","Are you eating ramen tonight?",ううん,uun,no,"ううん、ラーメンを食べない。","uun, ramen o tabenai.","Nah, I'm not eating ramen tonight.",をたべない
+taberu,casual_present_neg,"明日、ピザを食べる？","ashita, piza o taberu?","Are you eating pizza tomorrow?",ううん,uun,no,"ううん、ピザを食べない。","uun, piza o tabenai.","Nah, I'm not eating pizza tomorrow.",をたべない
+taberu,casual_present_neg,"週末、肉を食べる？","shumatsu, niku o taberu?","Are you eating meat this weekend?",ううん,uun,no,"ううん、肉を食べない。","uun, niku o tabenai.","Nah, I'm not eating meat this weekend.",をたべない
+taberu,casual_present_neg,"今夜、カレーを食べる？","kon'ya, kare o taberu?","Are you eating curry tonight?",ううん,uun,no,"ううん、カレーを食べない。","uun, kare o tabenai.","Nah, I'm not eating curry tonight.",をたべない
+taberu,casual_present_neg,"彼は今日肉を食べる？","kare wa kyo niku o taberu?","Is he eating meat today?",ううん,uun,no,"ううん、彼は肉を食べない。","uun, kare wa niku o tabenai.","Nah, he's not eating meat today.",をたべない
+taberu,casual_present_neg,"彼女は今夜寿司を食べる？","kanojo wa kon'ya sushi o taberu?","Is she eating sushi tonight?",ううん,uun,no,"ううん、彼女は寿司を食べない。","uun, kanojo wa sushi o tabenai.","Nah, she's not eating sushi tonight.",をたべない
+taberu,casual_present_neg,"彼らは週末ラーメンを食べる？","karera wa shumatsu ramen o taberu?","Are they eating ramen this weekend?",ううん,uun,no,"ううん、彼らはラーメンを食べない。","uun, karera wa ramen o tabenai.","Nah, they're not eating ramen this weekend.",をたべない
+taberu,casual_present_neg,"今日、寿司を食べる？","kyo, sushi o taberu?","Are you eating sushi today?",ううん,uun,no,"ううん、食べない。","uun, tabenai.","Nah, I'm not eating.",をたべない
+taberu,casual_present_neg,"今夜、ラーメンを食べる？","kon'ya, ramen o taberu?","Are you eating ramen tonight?",ううん,uun,no,"ううん、食べない。","uun, tabenai.","Nah, not eating.",をたべない
+taberu,casual_past_pos,"昨日、何を食べた？","kino, nani o tabeta?","What did you eat yesterday?",寿司,sushi,sushi,"寿司を食べた。","sushi o tabeta.","I ate sushi.",をたべた
+taberu,casual_past_pos,"先週、何を食べた？","senshu, nani o tabeta?","What did you eat last week?",ラーメン,ramen,ramen,"ラーメンを食べた。","ramen o tabeta.","I ate ramen.",をたべた
+taberu,casual_past_pos,"今朝、何を食べた？","kesa, nani o tabeta?","What did you eat this morning?",パン,pan,bread,"パンを食べた。","pan o tabeta.","I ate bread.",をたべた
+taberu,casual_past_pos,"昨日、何を食べた？","kino, nani o tabeta?","What did you eat yesterday?",カレー,kare,curry,"カレーを食べた。","kare o tabeta.","I ate curry.",をたべた
+taberu,casual_past_pos,"去年、何を食べた？","kyonen, nani o tabeta?","What did you eat last year?",ピザ,piza,pizza,"ピザを食べた。","piza o tabeta.","I ate pizza.",をたべた
+taberu,casual_past_pos,"彼は昨日何を食べた？","kare wa kino nani o tabeta?","What did he eat yesterday?",肉,niku,meat,"彼は肉を食べた。","kare wa niku o tabeta.","He ate meat.",をたべた
+taberu,casual_past_pos,"彼女は先週何を食べた？","kanojo wa senshu nani o tabeta?","What did she eat last week?",ケーキ,ke-ki,cake,"彼女はケーキを食べた。","kanojo wa ke-ki o tabeta.","She ate cake.",をたべた
+taberu,casual_past_pos,"彼らは今朝何を食べた？","karera wa kesa nani o tabeta?","What did they eat this morning?",お弁当,obento,bento,"彼らはお弁当を食べた。","karera wa obento o tabeta.","They ate a bento.",をたべた
+taberu,casual_past_pos,"昨日、何を食べた？","kino, nani o tabeta?","What did you eat yesterday?",野菜,yasai,vegetables,"野菜を食べた。","yasai o tabeta.","I ate vegetables.",をたべた
+taberu,casual_past_pos,"先週、何を食べた？","senshu, nani o tabeta?","What did you eat last week?",魚,sakana,fish,"魚を食べた。","sakana o tabeta.","I ate fish.",をたべた
+taberu,casual_past_neg,"昨日、寿司を食べた？","kino, sushi o tabeta?","Did you eat sushi yesterday?",ううん,uun,no,"ううん、寿司を食べなかった。","uun, sushi o tabenakatta.","Nah, I didn't eat sushi yesterday.",をたべなかった
+taberu,casual_past_neg,"先週、ラーメンを食べた？","senshu, ramen o tabeta?","Did you eat ramen last week?",ううん,uun,no,"ううん、ラーメンを食べなかった。","uun, ramen o tabenakatta.","Nah, I didn't eat ramen last week.",をたべなかった
+taberu,casual_past_neg,"今朝、パンを食べた？","kesa, pan o tabeta?","Did you eat bread this morning?",ううん,uun,no,"ううん、パンを食べなかった。","uun, pan o tabenakatta.","Nah, I didn't eat bread this morning.",をたべなかった
+taberu,casual_past_neg,"昨日、カレーを食べた？","kino, kare o tabeta?","Did you eat curry yesterday?",ううん,uun,no,"ううん、カレーを食べなかった。","uun, kare o tabenakatta.","Nah, I didn't eat curry yesterday.",をたべなかった
+taberu,casual_past_neg,"先週、肉を食べた？","senshu, niku o tabeta?","Did you eat meat last week?",ううん,uun,no,"ううん、肉を食べなかった。","uun, niku o tabenakatta.","Nah, he didn't eat meat last week.",をたべなかった
+taberu,casual_past_neg,"彼は昨日ケーキを食べた？","kare wa kino ke-ki o tabeta?","Did he eat cake yesterday?",ううん,uun,no,"ううん、彼はケーキを食べなかった。","uun, kare wa ke-ki o tabenakatta.","Nah, he didn't eat cake yesterday.",をたべなかった
+taberu,casual_past_neg,"彼女は先週寿司を食べた？","kanojo wa senshu sushi o tabeta?","Did she eat sushi last week?",ううん,uun,no,"ううん、彼女は寿司を食べなかった。","uun, kanojo wa sushi o tabenakatta.","Nah, she didn't eat sushi last week.",をたべなかった
+taberu,casual_past_neg,"彼らは今朝お弁当を食べた？","karera wa kesa obento o tabeta?","Did they eat a bento this morning?",ううん,uun,no,"ううん、彼らはお弁当を食べなかった。","uun, karera wa obento o tabenakatta.","Nah, they didn't eat a bento this morning.",をたべなかった
+taberu,casual_past_neg,"昨日、寿司を食べた？","kino, sushi o tabeta?","Did you eat sushi yesterday?",ううん,uun,no,"ううん、食べなかった。","uun, tabenakatta.","Nah, I didn't eat.",をたべなかった
+taberu,te_request,"お腹が空きました。","onaka ga sukaremashita.","I am hungry.",寿司,sushi,sushi,"寿司を食べてください。","sushi o tabete kudasai.","Please eat sushi.",をたべてください
+taberu,te_request,"これ、美味しいですよ。","kore, oishii desu yo.","This is delicious.",これ,kore,this,"これを食べてください。","kore o tabete kudasai.","Please eat this.",をたべてください
+taberu,te_request,"料理を作りました。","ryori o tsukurimashita.","I made a dish.",料理,ryori,dish,"料理を食べてください。","ryori o tabete kudasai.","Please eat the dish.",をたべてください
+taberu,te_request,"ケーキを買いました。","ke-ki o kaimashita.","I bought a cake.",ケーキ,ke-ki,cake,"ケーキを食べてください。","ke-ki o tabete kudasai.","Please eat the cake.",をたべてください
+taberu,te_request,"このリンゴ、新鮮ですよ。","kono ringo, shinsen desu yo.","This apple is fresh.",リンゴ,ringo,apple,"リンゴを食べてください。","ringo o tabete kudasai.","Please eat the apple.",をたべてください
+taberu,te_request,"お弁当をどうぞ。","obento o dozo.","Here is a bento.",お弁当,obento,bento,"お弁当を食べてください。","obento o tabete kudasai.","Please eat the bento.",をたべてください
+taberu,te_continuous,"今、何を食べていますか？","ima, nani o tabete imasu ka?","What are you eating now?",寿司,sushi,sushi,"寿司を食べています。","sushi o tabete imasu.","I am eating sushi.",をたべています
+taberu,te_continuous,"今、何を食べていますか？","ima, nani o tabete imasu ka?","What are you eating now?",ラーメン,ramen,ramen,"ラーメンを食べています。","ramen o tabete imasu.","I am eating ramen.",をたべています
+taberu,te_continuous,"今、何を食べていますか？","ima, nani o tabete imasu ka?","What are you eating now?",ピザ,piza,pizza,"ピザを食べています。","piza o tabete imasu.","I am eating pizza.",をたべています
+taberu,te_continuous,"今、何を食べていますか？","ima, nani o tabete imasu ka?","What are you eating now?",カレー,kare,curry,"カレーを食べています。","kare o tabete imasu.","I am eating curry.",をたべています
+taberu,te_continuous,"今、何を食べていますか？","ima, nani o tabete imasu ka?","What are you eating now?",パン,pan,bread,"パンを食べています。","pan o tabete imasu.","I am eating bread.",をたべています
+taberu,te_continuous,"彼は今何を食べていますか？","kare wa ima nani o tabete imasu ka?","What is he eating now?",肉,niku,meat,"彼は肉を食べています。","kare wa niku o tabete imasu.","He is eating meat.",をたべています
+taberu,te_continuous,"彼女は今何を食べていますか？","kanojo wa ima nani o tabete imasu ka?","What is she eating now?",ケーキ,ke-ki,cake,"彼女はケーキを食べています。","kanojo wa ke-ki o tabete imasu.","She is eating cake.",をたべています
+taberu,te_continuous,"彼らは今何を食べていますか？","karera wa ima nani o tabete imasu ka?","What are they eating now?",お弁当,obento,bento,"彼らはお弁当を食べています。","karera wa obento o tabete imasu.","They are eating a bento.",をたべています
+taberu,te_continuous,"今、何を食べていますか？","ima, nani o tabete imasu ka?","What are you eating right now?",野菜,yasai,vegetables,"野菜を食べています。","yasai o tabete imasu.","I am eating vegetables.",をたべています
+taberu,te_continuous,"今、何を食べていますか？","ima, nani o tabete imasu ka?","What are you eating now?",魚,sakana,fish,"魚を食べています。","sakana o tabete imasu.","I am eating fish.",をたべています

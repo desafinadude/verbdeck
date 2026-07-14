@@ -2,6 +2,8 @@ import ikuCsv from "@/data/questions/iku.csv";
 import ikuMeta from "@/data/verbs/iku.json";
 import miruCsv from "@/data/questions/miru.csv";
 import miruMeta from "@/data/verbs/miru.json";
+import taberuCsv from "@/data/questions/taberu.csv";
+import taberuMeta from "@/data/verbs/taberu.json";
 
 /* ------------------------------------------------------------------ *
  * Data types
@@ -50,6 +52,15 @@ export interface Question {
   answerEnglish: string;
   /** strict verb-ending fragment that must appear (absolute string match) */
   strictVerb: string;
+  /* ---- combine-form fields (present only on the combine_te form) ---- */
+  /** the second verb joined via te-form, e.g. "見る" (null on single-verb forms) */
+  secondVerb?: string;
+  /** romaji of the second verb */
+  secondVerbRomaji?: string;
+  /** english gloss of the second verb */
+  secondVerbEnglish?: string;
+  /** strict ending fragment for the second verb (combine forms only) */
+  strictVerb2?: string;
 }
 
 /* ------------------------------------------------------------------ *
@@ -59,6 +70,7 @@ export interface Question {
 export const VERBS: Record<string, VerbMeta> = {
   iku: ikuMeta as VerbMeta,
   miru: miruMeta as VerbMeta,
+  taberu: taberuMeta as VerbMeta,
 };
 
 /* ------------------------------------------------------------------ *
@@ -204,7 +216,16 @@ const FORMS: FormDef[] = [
   { key: "casual_past_neg", label: "Casual Past (-)" },
   { key: "te_request", label: "Te-Form (Request)" },
   { key: "te_continuous", label: "Te-Form (Continuous)" },
+  // Bonus combine form — chains this verb's te-form into a second verb.
+  // Drawn from a separate *_combine.csv bank; unlocked only after the
+  // first 10 forms are mastered (handled in the UI).
+  { key: "combine_te", label: "Combine (Te-link)" },
 ];
+
+/** Number of single-verb forms (the classic 10-dot loop). */
+export const CORE_FORMS = 10;
+/** Total forms including the bonus combine dot. */
+export const TOTAL_FORMS = FORMS.length;
 
 /* ------------------------------------------------------------------ *
  * Seeded RNG so a given session is deterministic (reproducible picks).
@@ -231,6 +252,7 @@ function pick<T>(arr: T[], rng: () => number): T {
 const BANKS: Record<string, Record<string, CsvRow[]>> = {
   iku: groupByForm(loadBank(ikuCsv)),
   miru: groupByForm(loadBank(miruCsv)),
+  taberu: groupByForm(loadBank(taberuCsv)),
 };
 
 function groupByForm(rows: CsvRow[]): Record<string, CsvRow[]> {
@@ -242,8 +264,176 @@ function groupByForm(rows: CsvRow[]): Record<string, CsvRow[]> {
   return map;
 }
 
+/**
+ * Generate the combine (te-link) question programmatically.
+ *
+ * The te-form is Japanese's conjunctive form — it links two actions in
+ * sequence. Crucially, **the te-form itself has no tense or register**;
+ * the tense (present/past) and register (polite/casual) of the entire
+ * sentence come from the final verb. So we drill four variations:
+ *
+ *   1. Polite present:  京都に行って、お寺を見ます。
+ *   2. Polite past:     京都に行って、お寺を見ました。
+ *   3. Casual present:  京都に行って、お寺を見る。
+ *   4. Casual past:     京都に行って、お寺を見た。
+ *
+ * The time word must match the tense, so we pull both verbs' noun+time
+ * from the matching tense+register CSV pool (e.g. `polite_past_pos`
+ * uses 昨日/先週, `polite_present_pos` uses 明日/来週). This also gives
+ * us the correct hiragana `strict_verb` for the second verb's ending —
+ * no manual kana conversion needed.
+ *
+ * The second verb is picked randomly from the registry. Adding verb #50
+ * instantly enables combines with all 49 existing verbs — zero extra
+ * CSV authoring required.
+ */
+function generateCombineQuestion(
+  verbKey: string,
+  rng: () => number
+): Question {
+  const v = VERBS[verbKey];
+  const otherKeys = Object.keys(VERBS).filter((k) => k !== verbKey);
+  if (otherKeys.length === 0) {
+    throw new Error(`No other verbs to combine with for "${verbKey}"`);
+  }
+  const secondKey = pick(otherKeys, rng);
+  const v2 = VERBS[secondKey];
+
+  // --- Pick the final verb's tense × register ---
+  const FINAL_FORMS = [
+    "polite_present_pos",
+    "polite_past_pos",
+    "casual_present_pos",
+    "casual_past_pos",
+  ] as const;
+  const finalFormKey = pick([...FINAL_FORMS], rng);
+  const isPast = finalFormKey.includes("past");
+  const isPolite = finalFormKey.includes("polite");
+
+  // --- First verb: te-form (register-independent, tense-independent) ---
+  const v1TePool = BANKS[verbKey]?.["te_request"] ?? [];
+  if (v1TePool.length === 0) {
+    throw new Error(`No te_request rows for "${verbKey}" to source combine te-form`);
+  }
+  const v1TeRow = pick(v1TePool, rng);
+  const strictVerb1 = v1TeRow.strictVerb.replace(/ください$/, "");
+  const teFormKanji = (v.conjugations["te_connective"]?.ja
+    ?? v.conjugations["te_request"]?.ja.replace(/ください$/, ""))!;
+  const teFormRomaji = (v.conjugations["te_connective"]?.romaji
+    ?? v.conjugations["te_request"]?.romaji.replace(/ kudasai$/, ""))!;
+
+  // --- Pull nouns + time from the matching tense+register pool ---
+  // This ensures time words match the tense (昨日 for past, 明日 for present)
+  // and gives us the correct hiragana strict_verb for the second verb.
+  // Filter out third-person rows (彼は…, 彼女は…, 彼らは…) since combines
+  // are first-person by design.
+  const firstPersonPool = (pool: CsvRow[]) =>
+    pool.filter((r) => !/^彼[は女ら]/.test(r.question));
+
+  const v1Pool = firstPersonPool(BANKS[verbKey]?.[finalFormKey] ?? []);
+  if (v1Pool.length === 0) {
+    throw new Error(`No first-person ${finalFormKey} rows for "${verbKey}" to source combine noun/time`);
+  }
+  const v1Row = pick(v1Pool, rng);
+  const timeMatch = v1Row.question.match(/^([^、]+)、/);
+  const timeWord = timeMatch?.[1] ?? (isPast ? "昨日" : "明日");
+
+  const v2Pool = firstPersonPool(BANKS[secondKey]?.[finalFormKey] ?? []);
+  if (v2Pool.length === 0) {
+    throw new Error(`No first-person ${finalFormKey} rows for "${secondKey}" to source combine noun`);
+  }
+  const v2Row = pick(v2Pool, rng);
+  const strictVerb2 = v2Row.strictVerb; // already correct hiragana for this form
+
+  // --- Final verb conjugation (from JSON, for display) ---
+  const finalConj = v2.conjugations[finalFormKey];
+  if (!finalConj) {
+    throw new Error(`No ${finalFormKey} conjugation for verb "${secondKey}"`);
+  }
+  const finalVerbKanji = finalConj.ja;
+  const finalVerbRomaji = finalConj.romaji;
+
+  // --- Construct the combined answer ---
+  const noun1 = v1Row.hintKeyword;
+  const noun2 = v2Row.hintKeyword;
+
+  const answer = `${timeWord}、${noun1}${v.particle}${teFormKanji}、${noun2}${v2.particle}${finalVerbKanji}。`;
+
+  const p1Romaji = v.particle === "に" ? "ni" : "o";
+  const p2Romaji = v2.particle === "に" ? "ni" : "o";
+  const answerRomaji = `${timeWord}, ${v1Row.hintKeywordRomaji} ${p1Romaji} ${teFormRomaji}, ${v2Row.hintKeywordRomaji} ${p2Romaji} ${finalVerbRomaji}.`;
+
+  // --- English construction ---
+  // Translate the Japanese time word to English.
+  const TIME_WORDS_EN: Record<string, string> = {
+    "明日": "Tomorrow", "今夜": "Tonight", "来週": "Next week",
+    "週末": "This weekend", "金曜日": "On Friday", "来年": "Next year",
+    "今晩": "This evening", "昨日": "Yesterday", "先週": "Last week",
+    "去年": "Last year", "今朝": "This morning", "土曜日": "On Saturday",
+  };
+  const timeWordEn = TIME_WORDS_EN[timeWord] ?? timeWord;
+
+  // Extract the first verb stem from verbEnglish.
+  // verbEnglish may be compound: "to see / to watch" → take first → "see".
+  const verbStem = (ve: string) => ve.split(" / ")[0].replace(/^to /, "");
+  const PAST_MAP: Record<string, string> = { go: "went", see: "saw", eat: "ate", watch: "watched" };
+  const actionEn = (particle: string, verbEnglish: string, noun: string): string => {
+    const stem = verbStem(verbEnglish);
+    const conj = isPast ? (PAST_MAP[stem] ?? stem + "ed") : stem;
+    return particle === "に" ? `${conj} to ${noun}` : `${conj} ${noun}`;
+  };
+  const v1En = actionEn(v.particle, v.verbEnglish, v1Row.hintEnglish);
+  const v2En = actionEn(v2.particle, v2.verbEnglish, v2Row.hintEnglish);
+  const answerEnglish = isPast
+    ? `${timeWordEn} I ${v1En} and ${v2En}.`
+    : `${timeWordEn} I will ${v1En} and ${v2En}.`;
+
+  // --- Construct the question (same register as the answer) ---
+  const q1Word = v.particle === "に" ? "どこに" : "何を";
+  const q2Word = v2.particle === "に" ? "どこに" : "何を";
+  const q1RomajiWord = v.particle === "に" ? "doko ni" : "nani o";
+  const q2RomajiWord = v2.particle === "に" ? "doko ni" : "nani o";
+
+  // Polite questions end with か, casual questions end with ?
+  if (isPolite) {
+    const question = `${timeWord}、${q1Word}${teFormKanji}、${q2Word}${finalVerbKanji}か？`;
+    const questionRomaji = `${timeWord}, ${q1RomajiWord} ${teFormRomaji}, ${q2RomajiWord} ${finalVerbRomaji} ka?`;
+    const q1En = v.particle === "に" ? (isPast ? "where did you go" : "where will you go") : (isPast ? `what did you ${verbStem(v.verbEnglish)}` : `what will you ${verbStem(v.verbEnglish)}`);
+    const q2En = v2.particle === "に" ? (isPast ? "where did you go" : "where will you go") : (isPast ? `what did you ${verbStem(v2.verbEnglish)}` : `what will you ${verbStem(v2.verbEnglish)}`);
+    const questionEnglish = `${timeWordEn}, ${q1En} and ${q2En}?`;
+
+    const formLabel = `Combine (te → ${isPast ? "polite past" : "polite present"})`;
+    return {
+      state: formLabel,
+      question, questionRomaji, questionEnglish,
+      hintKeyword: noun2, hintKeywordRomaji: v2Row.hintKeywordRomaji, hintEnglish: v2Row.hintEnglish,
+      answer, answerRomaji, answerEnglish,
+      strictVerb: strictVerb1,
+      secondVerb: v2.verb, secondVerbRomaji: v2.verbRomaji, secondVerbEnglish: v2.verbEnglish,
+      strictVerb2,
+    };
+  } else {
+    const question = `${timeWord}、${q1Word}${teFormKanji}、${q2Word}${finalVerbKanji}？`;
+    const questionRomaji = `${timeWord}, ${q1RomajiWord} ${teFormRomaji}, ${q2RomajiWord} ${finalVerbRomaji}?`;
+    const q1En = v.particle === "に" ? (isPast ? "where did you go" : "where are you going") : (isPast ? `what did you ${verbStem(v.verbEnglish)}` : `what will you ${verbStem(v.verbEnglish)}`);
+    const q2En = v2.particle === "に" ? (isPast ? "where did you go" : "where are you going") : (isPast ? `what did you ${verbStem(v2.verbEnglish)}` : `what will you ${verbStem(v2.verbEnglish)}`);
+    const questionEnglish = `${timeWordEn}, ${q1En} and ${q2En}?`;
+
+    const formLabel = `Combine (te → ${isPast ? "casual past" : "casual present"})`;
+    return {
+      state: formLabel,
+      question, questionRomaji, questionEnglish,
+      hintKeyword: noun2, hintKeywordRomaji: v2Row.hintKeywordRomaji, hintEnglish: v2Row.hintEnglish,
+      answer, answerRomaji, answerEnglish,
+      strictVerb: strictVerb1,
+      secondVerb: v2.verb, secondVerbRomaji: v2.verbRomaji, secondVerbEnglish: v2.verbEnglish,
+      strictVerb2,
+    };
+  }
+}
+
 /* ------------------------------------------------------------------ *
- * Generate the 10-question set for a verb.
+ * Generate the question set for a verb (10 core + 1 combine = 11).
  *
  * @param verbKey   key into VERBS (e.g. "iku")
  * @param seed      numeric seed for reproducible picks (default: Date.now)
@@ -258,7 +448,8 @@ export function generateQuestions(verbKey: string, seed?: number): Question[] {
 
   const rng = mulberry32(seed ?? Date.now());
 
-  return FORMS.map((form) => {
+  // Core 10 forms come from the CSV bank.
+  const coreQuestions = FORMS.slice(0, CORE_FORMS).map((form) => {
     const pool = bank[form.key];
     if (!pool || pool.length === 0) {
       throw new Error(`No rows for form "${form.key}" in ${verbKey} bank`);
@@ -279,6 +470,11 @@ export function generateQuestions(verbKey: string, seed?: number): Question[] {
       strictVerb: row.strictVerb,
     };
   });
+
+  // The bonus combine question is generated programmatically.
+  const combineQuestion = generateCombineQuestion(verbKey, rng);
+
+  return [...coreQuestions, combineQuestion];
 }
 
 /* ------------------------------------------------------------------ *
@@ -308,6 +504,13 @@ export function evaluateAnswer(
 
   if (!t.includes(verb)) {
     return { passed: false, reason: `動詞: ${q.strictVerb} が見つかりません` };
+  }
+  // Combine form: the second verb ending must also appear.
+  if (q.strictVerb2) {
+    const verb2 = normalize(q.strictVerb2);
+    if (!t.includes(verb2)) {
+      return { passed: false, reason: `動詞: ${q.strictVerb2} が見つかりません` };
+    }
   }
   if (noun && !t.includes(noun)) {
     return { passed: false, reason: `名詞: ${q.hintKeyword} が見つかりません` };

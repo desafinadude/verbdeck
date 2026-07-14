@@ -14,6 +14,7 @@
     "casual_past_pos": { "ja": "見た", "romaji": "mita", "en": "saw / watched" },
     "casual_past_neg": { "ja": "見なかった", "romaji": "minakatta", "en": "did not see / did not watch" },
     "te_request": { "ja": "見てください", "romaji": "mite kudasai", "en": "please look / please watch" },
-    "te_continuous": { "ja": "見ています", "romaji": "mite imasu", "en": "am watching / am looking at" }
+    "te_continuous": { "ja": "見ています", "romaji": "mite imasu", "en": "am watching / am looking at" },
+    "te_connective": { "ja": "見て", "romaji": "mite", "en": "see/watch and..." }
   }
 }

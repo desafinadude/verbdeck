@@ -75,6 +75,7 @@ function parseCsv(text: string): string[][] {
 const CATEGORY_LABELS: Record<string, string> = {
   time: "Time",
   places: "Common Places",
+  foods: "Common Foods",
 };
 
 /* ------------------------------------------------------------------ *

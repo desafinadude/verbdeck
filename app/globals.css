@@ -502,6 +502,12 @@ button:disabled {
 .dot.is-done {
   background: #1a1a1a;
 }
+/* ---------- State tag sub-badge (combine second verb) ---------- */
+.state-tag__sub {
+  margin-left: 6px;
+  font-weight: 400;
+  opacity: 0.8;
+}
 
 /* ---------- QA ---------- */
 .state-tag {
@@ -697,4 +703,14 @@ button:disabled {
 .complete p {
   color: #555;
   margin: 0;
+}
+
+
+
+/* ---------- State tag sub-label (combine second verb) ---------- */
+.state-tag__sub {
+  font-weight: 400;
+  font-size: 10px;
+  opacity: 0.85;
+  margin-left: 4px;
 }

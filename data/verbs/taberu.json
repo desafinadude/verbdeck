@@ -1,0 +1,20 @@
+{
+  "verb": "食べる",
+  "verbRomaji": "Taberu",
+  "verbEnglish": "to eat",
+  "particle": "を",
+  "particleEnglish": "object",
+  "conjugations": {
+    "polite_present_pos": { "ja": "食べます", "romaji": "tabemasu", "en": "eat / will eat" },
+    "polite_present_neg": { "ja": "食べません", "romaji": "tabemasen", "en": "do not eat / will not eat" },
+    "polite_past_pos": { "ja": "食べました", "romaji": "tabemashita", "en": "ate" },
+    "polite_past_neg": { "ja": "食べませんでした", "romaji": "tabemasen deshita", "en": "did not eat" },
+    "casual_present_pos": { "ja": "食べる", "romaji": "taberu", "en": "eat / will eat" },
+    "casual_present_neg": { "ja": "食べない", "romaji": "tabenai", "en": "do not eat / will not eat" },
+    "casual_past_pos": { "ja": "食べた", "romaji": "tabeta", "en": "ate" },
+    "casual_past_neg": { "ja": "食べなかった", "romaji": "tabenakatta", "en": "did not eat" },
+    "te_request": { "ja": "食べてください", "romaji": "tabete kudasai", "en": "please eat" },
+    "te_continuous": { "ja": "食べています", "romaji": "tabete imasu", "en": "am eating" },
+    "te_connective": { "ja": "食べて", "romaji": "tabete", "en": "eat and..." }
+  }
+}

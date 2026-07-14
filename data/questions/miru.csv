@@ -106,4 +106,4 @@ miru,polite_past_neg,"昨日、あなたたちは映画を見ましたか？","k
 miru,polite_past_neg,"先週、あなたたちはテレビを見ましたか？","senshu, anatatachi wa terebi o mimashita ka?","Did you (plural) watch TV last week?",いいえ,iie,no,"いいえ、私たちはテレビを見ませんでした。","iie, watashitachi wa terebi o mimasen deshita.","No, we did not watch TV last week.",をみませんでした
 miru,polite_past_neg,"昨日、あなたたちは映画を見ましたか？","kino, anatatachi wa eiga o mimashita ka?","Did you (plural) watch a movie yesterday?",いいえ,iie,no,"いいえ、私たちは見ませんでした。","iie, watashitachi wa mimasen deshita.","No, we did not watch.",をみませんでした
 miru,casual_past_neg,"昨日、あなたたちは映画を見た？","kino, anatatachi wa eiga o mita?","Did you (plural) watch a movie yesterday?",ううん,uun,no,"ううん、私たちは映画を見なかった。","uun, watashitachi wa eiga o minakatta.","Nah, we didn't watch a movie yesterday.",をみなかった
-miru,casual_past_neg,"昨日、あなたたちは花を見た？","kino, anatatachi wa
+miru,casual_past_neg,"昨日、あなたたちは花を見た？","kino, anatatachi wa hana o mita?","Did you (plural) see flowers yesterday?",ううん,uun,no,"ううん、私たちは花を見なかった。","uun, watashitachi wa hana o minakatta.","Nah, we didn't see flowers yesterday.",をみなかった

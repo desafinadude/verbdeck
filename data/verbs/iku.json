@@ -14,6 +14,7 @@
     "casual_past_pos": { "ja": "行った", "romaji": "itta", "en": "went" },
     "casual_past_neg": { "ja": "行かなかった", "romaji": "ikanakatta", "en": "did not go" },
     "te_request": { "ja": "行ってください", "romaji": "itte kudasai", "en": "please go" },
-    "te_continuous": { "ja": "行っています", "romaji": "itte imasu", "en": "am going / have been going" }
+    "te_continuous": { "ja": "行っています", "romaji": "itte imasu", "en": "am going / have been going" },
+    "te_connective": { "ja": "行って", "romaji": "itte", "en": "go and..." }
   }
 }

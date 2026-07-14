@@ -26,7 +26,7 @@ import { VOCAB_SETS } from "@/lib/vocab";
 
 type Phase = "intro" | "ask" | "listening" | "evaluating" | "complete";
 
-const TOTAL = 10;
+const TOTAL = 11; // 10 core forms + 1 bonus combine dot
 
 export default function Page() {
   const [phase, setPhase] = useState<Phase>("intro");
@@ -364,14 +364,16 @@ export default function Page() {
             </div>
 
             <div className="progress">
-              {progress.map((done, i) => (
-                <span
-                  key={i}
-                  className={`dot ${i === index ? "is-active" : ""} ${
-                    done ? "is-done" : ""
-                  }`}
-                />
-              ))}
+              {progress.map((done, i) => {
+                return (
+                  <span
+                    key={i}
+                    className={`dot ${i === index ? "is-active" : ""} ${
+                      done ? "is-done" : ""
+                    }`}
+                  />
+                );
+              })}
             </div>
 
             {currentQuestion && (
@@ -387,7 +389,14 @@ export default function Page() {
                   <Icon icon="ph:caret-left-bold" />
                 </button>
                 <div className="carousel-card">
-                  <div className="state-tag">{currentQuestion.state}</div>
+                  <div className="state-tag">
+                    {currentQuestion.state}
+                    {currentQuestion.secondVerb && (
+                      <span className="state-tag__sub">
+                        + {currentQuestion.secondVerb}
+                      </span>
+                    )}
+                  </div>
 
                 <div
                   className="question question-clickable"
@@ -468,6 +477,8 @@ export default function Page() {
                     ? "Wrong"
                     : status}
                 </div>
+
+
                 </div>
                 <button
                   type="button"
